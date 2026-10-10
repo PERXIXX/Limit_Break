@@ -81,7 +81,7 @@ const PROBLEMS: Problem[] = [
     steps: ["จุดตัด: x² − x = 0 → x = 0, 1", "บน [0,1] มี x ≥ x²", "A = ∫₀¹ (x − x²) dx = [x²/2 − x³/3]₀¹", "A = 1/2 − 1/3 = 1/6"] },
   { topic: "Integrals", difficulty: 3, ref: "§5.5 Substitution Rule",
     story: "⛽ อัตราการใช้เชื้อเพลิงคือ r(t) = 2t(t² + 1)³ หน่วย/นาที",
-    q: "เชื้อเพลิงที่ใช้ทั้งหมดในช่วง t = 0 ถึง 1 นาที", choices: ["15/4", "4", "16/4", "7/2"], answer: 0,
+    q: "เชื้อเพลิงที่ใช้ทั้งหมดในช่วง t = 0 ถึง 1 นาที", choices: ["15/4", "4", "17/4", "7/2"], answer: 0,
     hints: ["สังเกตว่า 2t คืออนุพันธ์ของ t² + 1 → ใช้กฎการแทนค่า", "ให้ u = t² + 1, du = 2t dt และเปลี่ยนขอบเขตเป็น u: 1 → 2"],
     steps: ["ให้ u = t² + 1 → du = 2t dt", "t = 0 → u = 1, t = 1 → u = 2", "∫₁² u³ du = [u⁴/4]₁²", "= 16/4 − 1/4 = 15/4"] },
   { topic: "Integrals", difficulty: 3, ref: "§5.4 Fundamental Theorem, Part 1",
@@ -113,10 +113,10 @@ const PROBLEMS: Problem[] = [
 
 // Gameplay rules
 const LEVEL_XP = (lvl: number) => 100 * lvl; // XP needed to go from lvl to lvl+1
-const calcPoints = (difficulty: number, streak: number, usedHint: boolean) => {
+const calcPoints = (difficulty: number, streak: number, hintsUsed: number) => {
   const base = difficulty * 10;
   const mult = 1 + Math.min(streak, 10) * 0.1; // up to 2x at 10-streak
-  return Math.round(base * mult * (usedHint ? 0.5 : 1));
+  return Math.round(base * mult * (hintsUsed === 0 ? 1 : hintsUsed === 1 ? 0.75 : 0.5));
 };
 
 interface Save { xp: number; level: number; total: number; streak: number; best: number; solved: number; attempts: number }
@@ -130,7 +130,7 @@ function Game() {
   const [topic, setTopic] = useState<Topic | "All">("All");
   const [queue, setQueue] = useState<Problem[]>([]);
   const [picked, setPicked] = useState<number | null>(null);
-  const [hint, setHint] = useState(false);
+  const [hint, setHint] = useState(0);
   const [toast, setToast] = useState<string | null>(null);
 
   useEffect(() => {
@@ -139,7 +139,7 @@ function Game() {
   useEffect(() => { localStorage.setItem(KEY, JSON.stringify(save)); }, [save]);
 
   const pool = useMemo(() => PROBLEMS.filter((p) => topic === "All" || p.topic === topic), [topic]);
-  useEffect(() => { setQueue(shuffle(pool)); setPicked(null); setHint(false); }, [pool]);
+  useEffect(() => { setQueue(shuffle(pool)); setPicked(null); setHint(0); }, [pool]);
 
   const current = queue[0];
   const answered = picked !== null;
@@ -164,7 +164,7 @@ function Game() {
 
   function next() {
     setQueue((q) => (q.length > 1 ? q.slice(1) : shuffle(pool)));
-    setPicked(null); setHint(false);
+    setPicked(null); setHint(0);
   }
 
   const pct = Math.round((save.xp / LEVEL_XP(save.level)) * 100);
@@ -205,7 +205,7 @@ function Game() {
       <p className="mt-1 text-right text-xs font-bold text-muted-foreground">{save.xp} / {LEVEL_XP(save.level)} XP to level {save.level + 1} ✨</p>
 
       <nav className="relative mt-8 flex flex-wrap gap-2">
-        {(["All", "Limits", "Derivatives", "Integrals", "Applications"] as const).map((t) => (
+        {(["All", "Limits", "Derivatives", "Integrals", "Applications", "Diff Eq"] as const).map((t) => (
           <button key={t} onClick={() => setTopic(t)}
             className={`rounded-full border-2 border-border px-4 py-1.5 text-sm font-bold transition hover:scale-105 active:scale-95 ${topic === t ? "bg-primary text-primary-foreground ink-shadow" : "bg-card hover:bg-secondary"}`}>
             {t}
@@ -220,7 +220,9 @@ function Game() {
             <span className="rounded-full bg-muted px-3 py-1">{current.topic}</span>
             <span className="text-base normal-case tracking-normal">{"⭐".repeat(current.difficulty)} · {calcPoints(current.difficulty, save.streak, hint)} pts</span>
           </div>
-          <h2 className="mt-6 text-3xl font-bold md:text-5xl">{current.q}</h2>
+          <p className="mt-2 text-xs font-bold text-muted-foreground">📘 Thomas' Calculus 13e · {current.ref}</p>
+          <p className="mt-5 rounded-3xl bg-secondary p-4 text-base font-bold text-secondary-foreground">{current.story}</p>
+          <h2 className="mt-5 text-2xl font-bold md:text-3xl">{current.q}</h2>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {current.choices.map((c, i) => {
@@ -236,17 +238,36 @@ function Game() {
             })}
           </div>
 
+          {hint > 0 && (
+            <div className="mt-6 space-y-2">
+              {current.hints.slice(0, hint).map((h, i) => (
+                <p key={i} className="rounded-2xl bg-sun/40 px-4 py-2 text-sm font-bold animate-in fade-in">💡 คำใบ้ระดับ {i + 1}: {h}</p>
+              ))}
+            </div>
+          )}
+
+          {answered && (
+            <div className="mt-6 rounded-3xl border-2 border-border bg-background p-5 animate-in fade-in">
+              <p className="font-display text-lg font-bold">{correct ? "🎉 ถูกต้อง!" : "💪 ยังไม่ถูก — ดูวิธีทำกัน"}</p>
+              <p className="mt-1 text-sm font-bold">📝 วิธีทำทีละขั้นตอน</p>
+              <ol className="mt-2 space-y-1.5">
+                {current.steps.map((st, i) => (
+                  <li key={i} className="flex gap-3 text-sm"><span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">{i + 1}</span><span>{st}</span></li>
+                ))}
+              </ol>
+              <p className="mt-3 text-sm font-bold">✅ คำตอบ: {current.choices[current.answer]}</p>
+            </div>
+          )}
+
           <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
             {!answered ? (
-              <button onClick={() => setHint(true)} disabled={hint} className="rounded-full bg-sun/40 px-4 py-2 text-sm font-bold transition hover:scale-105 disabled:hover:scale-100">
-                {hint ? `💡 ${current.hint}` : "💡 Need a hint? (halves points)"}
+              <button onClick={() => setHint((h) => Math.min(2, h + 1))} disabled={hint >= 2} className="rounded-full bg-sun/40 px-4 py-2 text-sm font-bold transition hover:scale-105 disabled:opacity-50 disabled:hover:scale-100">
+                {hint === 0 ? "💡 ขอคำใบ้ระดับ 1 (−25% แต้ม)" : hint === 1 ? "💡 ขอคำใบ้ระดับ 2 (−50% แต้ม)" : "💡 ใช้คำใบ้ครบแล้ว"}
               </button>
-            ) : (
-              <p className="text-sm font-bold">{correct ? "🎉 Correct — keep the streak going!" : `💪 Not quite. ${current.hint}`}</p>
-            )}
+            ) : <span />}
             {answered && (
               <button onClick={next} className="rounded-full border-2 border-border bg-primary px-8 py-2.5 font-display text-lg font-bold text-primary-foreground ink-shadow transition hover:translate-y-1 hover:shadow-none active:scale-95">
-                Next →
+                ข้อต่อไป →
               </button>
             )}
           </div>
@@ -254,7 +275,7 @@ function Game() {
       )}
 
       <footer className="relative mt-10 text-center text-xs font-bold text-muted-foreground">
-        🌈 Points = difficulty × 10 × (1 + 0.1 per streak, max 2×). Hints halve points. Wrong answer resets streak.
+        🌈 Points = difficulty × 10 × (1 + 0.1 per streak, max 2×). Hint level 1 = 75% points, level 2 = 50%. Wrong answer resets streak.
       </footer>
     </main>
   );
