@@ -147,6 +147,7 @@ function MathBlock({ value }: { value: string }) {
 function Game() {
   const [save, setSave] = useState<Save>(EMPTY);
   const [topic, setTopic] = useState<TopicFilter>("All");
+  const [showSplash, setShowSplash] = useState(true);
   const [current, setCurrent] = useState<MathQuestion | null>(null);
   const [picked, setPicked] = useState<number | null>(null);
   const [hint, setHint] = useState(0);
@@ -156,6 +157,11 @@ function Game() {
   const [questionNonce, setQuestionNonce] = useState(0);
   const [saveLoaded, setSaveLoaded] = useState(false);
   const [showSourceModal, setShowSourceModal] = useState(false);
+
+  useEffect(() => {
+    const splashTimer = window.setTimeout(() => setShowSplash(false), 900);
+    return () => window.clearTimeout(splashTimer);
+  }, []);
 
   useEffect(() => {
     try {
@@ -255,6 +261,25 @@ function Game() {
   function closeSourceModal() {
     localStorage.setItem("limit-break-source-seen", "true");
     setShowSourceModal(false);
+  }
+
+  if (showSplash) {
+    return (
+      <main className="loading-screen" aria-label="Loading Limit Break" aria-busy="true">
+        <div className="loading-orbit" aria-hidden="true">
+          <span className="loading-orbit__dot loading-orbit__dot--one" />
+          <span className="loading-orbit__dot loading-orbit__dot--two" />
+          <span className="loading-orbit__dot loading-orbit__dot--three" />
+          <div className="loading-logo-mark">🚀</div>
+        </div>
+        <p className="loading-eyebrow">CALCULUS 1 / FLIGHT SCHOOL</p>
+        <h1 className="loading-wordmark">Limit <em>Break</em></h1>
+        <div className="loading-status" role="status">
+          <span className="loading-spinner" aria-hidden="true" />
+          <span>กำลังเตรียมภารกิจ</span>
+        </div>
+      </main>
+    );
   }
 
   return (
