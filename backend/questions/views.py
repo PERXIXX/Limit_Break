@@ -11,7 +11,7 @@ class RandomQuestionView(APIView):
         questions = MathQuestion.objects.all()
         if topic and topic != "All":
             questions = questions.filter(topic=topic)
-        question = random.choice(list(questions)) if questions.exists() else None
+        question = questions.order_by('?').first()
         if question is None:
             return Response({"detail": "No questions found for this topic."}, status=404)
         payload = MathQuestionSerializer(question).data

@@ -3,6 +3,21 @@ import os
 from django.core.management.base import BaseCommand
 from questions.models import MathQuestion
 
+def map_topic(raw_topic):
+    """แมปหัวข้อย่อยใน JSON ให้เข้ากับ 5 หมวดของ MathQuestion.TOPICS"""
+    t = (raw_topic or '').lower()
+    if 'limit' in t or 'hôpital' in t or 'hopital' in t:
+        return 'Limits'
+    if any(k in t for k in ('deriv', 'differential', 'chain', 'quotient', 'logarithmic', 'newton')):
+        return 'Derivatives'
+    if any(k in t for k in ('integral', 'integration', 'trig', 'partial fractions', 'arc length', 'area', 'volume', 'fundamental')):
+        return 'Integrals'
+    if 'diff eq' in t or 'differential equation' in t:
+        return 'Diff Eq'
+    # related rates, optimization, extrema, approximation, series, vectors, lines/planes ฯลฯ
+    return 'Applications'
+
+
 class Command(BaseCommand):
     help = 'Seed database with robust format handling from JSON (Auto-clear old data)'
 
