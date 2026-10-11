@@ -49,7 +49,7 @@ class Command(BaseCommand):
                         break
                 
                 MathQuestion.objects.create(
-                    topic=q.get('topic', 'Limits'),
+                    topic=map_topic(q.get('topic')),
                     difficulty=2,
                     reference="AI Generated",
                     story="ภารกิจจำลองเพื่อทดสอบระบบหน้าเว็บ",
