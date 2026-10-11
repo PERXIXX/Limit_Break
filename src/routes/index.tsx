@@ -59,7 +59,7 @@ const UNLOCK_LEVEL: Record<Topic, number> = {
   Applications: 10,
   "Diff Eq": 13,
 };
-const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8000/api";
+const API_URL = import.meta.env["VITE_API_URL"] ?? "http://localhost:8000/api";
 const API_ORIGIN = new URL(API_URL).origin;
 
 function levelXp(level: number) {
@@ -103,7 +103,7 @@ function MathContent({ value, block = false }: { value: string; block?: boolean 
         <span className="mr-1 text-3xl leading-none" aria-hidden="true">{"{"}</span>
         <span className="inline-flex flex-col gap-1">
           {rows.map((row, index) => {
-            const [expression, condition = ""] = row.split("&");
+            const [expression = "", condition = ""] = row.split("&");
             return <span key={index} className="inline-flex items-center gap-3 whitespace-nowrap">
               <InlineMath math={expression.trim()} />
               {condition.trim() && <InlineMath math={condition.trim()} />}
@@ -323,7 +323,7 @@ function Game() {
           </div>
 
           {hint > 0 && <div className="mt-6 space-y-2">{current.hints.slice(0, hint).map((item, index) => <p key={index} className="rounded-2xl bg-sun/40 px-4 py-2 text-sm font-bold">💡 คำใบ้ระดับ {index + 1}: {item}</p>)}</div>}
-          {answered && <div className="solution-panel mt-6 rounded-3xl border-2 border-border bg-background p-5"><p className="font-display text-lg font-bold">{correct ? "🎉 ถูกต้อง!" : "💪 ยังไม่ถูก: ดูวิธีทำกัน"}</p><p className="mt-1 text-sm font-bold">📝 วิธีทำทีละขั้นตอน</p><ol className="mt-2 space-y-1.5">{current.steps.map((step, index) => <li key={index} className="flex gap-3 text-sm"><span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">{index + 1}</span><span className="min-w-0 flex-1"><MathBlock value={step} /></span></li>)}</ol><p className="mt-3 text-sm font-bold">✅ คำตอบ</p><MathBlock value={current.choices[current.correct_answer_index]} /></div>}
+          {answered && <div className="solution-panel mt-6 rounded-3xl border-2 border-border bg-background p-5"><p className="font-display text-lg font-bold">{correct ? "🎉 ถูกต้อง!" : "💪 ยังไม่ถูก: ดูวิธีทำกัน"}</p><p className="mt-1 text-sm font-bold">📝 วิธีทำทีละขั้นตอน</p><ol className="mt-2 space-y-1.5">{current.steps.map((step, index) => <li key={index} className="flex gap-3 text-sm"><span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">{index + 1}</span><span className="min-w-0 flex-1"><MathBlock value={step} /></span></li>)}</ol><p className="mt-3 text-sm font-bold">✅ คำตอบ</p><MathBlock value={current.choices[current.correct_answer_index] ?? ""} /></div>}
 
           <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
             {!answered ? <button type="button" onClick={() => setHint((value) => Math.min(2, value + 1))} disabled={hint >= 2 || save.hearts <= 0} className="min-h-11 rounded-full bg-sun/40 px-4 py-2 text-sm font-bold transition hover:scale-105 disabled:opacity-50">{hint === 0 ? "💡 ขอคำใบ้ระดับ 1 (−25% แต้ม)" : "💡 ขอคำใบ้ระดับ 2 (−50% แต้ม)"}</button> : <span />}
