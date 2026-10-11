@@ -1,0 +1,2165 @@
+[
+  {
+    "question_number": 11,
+    "topic": "Linear Approximation",
+    "question": "จงใช้การประมาณเชิงเส้น (Linear Approximation) ของฟังก์ชัน $f(x) = \\sqrt{x}$ ที่ $x = 4$ เพื่อประมาณค่าของ $\\sqrt{4.1}$",
+    "choices": [
+      {
+        "text": "2.025",
+        "is_correct": true,
+        "explanation": "สูตรประมาณเชิงเส้น: $L(x) = f(a) + f^{\\prime}(a)(x - a)$ ให้ $a = 4$, $f(4) = 2$, $f^{\\prime}(x) = 1/(2\\sqrt{x})$ จะได้ $f^{\\prime}(4) = 1/4 = 0.25$ ดังนั้น $\\sqrt{4.1} \\approx 2 + 0.25(4.1 - 4) = 2 + 0.25(0.1) = 2.025$"
+      },
+      {
+        "text": "2.05",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คำนวณ $f^{\\prime}(4)$ ผิดเป็น $1/2$ (ลืมคูณ 2 ที่ตัวส่วน)"
+      },
+      {
+        "text": "2.01",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เดาตัวเลขที่ใกล้เคียง 2 โดยไม่ได้ใช้สูตรอนุพันธ์"
+      },
+      {
+        "text": "2.1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอา $0.1$ ไปบวกกับ 2 ดื้อๆ โดยไม่สนใจอัตราการเปลี่ยนแปลง (ความชัน)"
+      }
+    ]
+  },
+  {
+    "question_number": 12,
+    "topic": "Related Rates",
+    "question": "เป่าลมลูกโป่งทรงกลม ทำให้รัศมีเพิ่มขึ้นด้วยอัตรา 2 เซนติเมตร/วินาที ปริมาตรของลูกโป่งจะเพิ่มขึ้นด้วยอัตราเท่าใดในขณะที่รัศมีเท่ากับ 5 เซนติเมตร (สูตรปริมาตร $V = \\frac{4}{3}\\pi r^3$)",
+    "choices": [
+      {
+        "text": "200\\pi",
+        "is_correct": true,
+        "explanation": "ดิฟเทียบเวลา t: $dV/dt = 4\\pi r^2 (dr/dt)$ แทนค่า $r = 5$ และ $dr/dt = 2$ จะได้ $dV/dt = 4\\pi(5^2)(2) = 200\\pi$"
+      },
+      {
+        "text": "100\\pi",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ดิฟปริมาตรได้ $4\\pi r^2$ แทน $r=5$ ได้ $100\\pi$ แต่ลืมคูณ $dr/dt = 2$ (ลืมกฎลูกโซ่เทียบเวลา)"
+      },
+      {
+        "text": "\\frac{500\\pi}{3}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: แทน $r=5$ ลงในสูตรปริมาตร V โดยไม่ได้ทำการหาอนุพันธ์"
+      },
+      {
+        "text": "50\\pi",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใช้สูตรพื้นที่ผิวลูกทรงกลมแทนสูตรปริมาตร"
+      }
+    ]
+  },
+  {
+    "question_number": 13,
+    "topic": "Differentials",
+    "question": "ในการวัดด้านของลูกบาศก์ได้ยาว 10 ซม. โดยมีความผิดพลาดในการวัดไม่เกิน $\\pm 0.1$ ซม. จงใช้ดิฟเฟอเรนเชียล (Differentials) ประมาณค่าความผิดพลาดสูงสุดที่เป็นไปได้ในการคำนวณปริมาตรของลูกบาศก์",
+    "choices": [
+      {
+        "text": "\\pm 30",
+        "is_correct": true,
+        "explanation": "ปริมาตร $V = x^3$ จะได้ $dV = 3x^2 dx$ แทนค่า $x = 10, dx = \\pm 0.1$ จะได้ $dV = 3(10^2)(\\pm 0.1) = \\pm 30$ ลบ.ซม."
+      },
+      {
+        "text": "\\pm 1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาค่าความผิดพลาด 0.1 ไปยกกำลังสาม $(0.1)^3$ หรือไม่ได้ใช้สูตรดิฟเฟอเรนเชียล"
+      },
+      {
+        "text": "\\pm 3",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใช้สูตร $dV = 3x dx$ (ลืมยกกำลังสองที่ x)"
+      },
+      {
+        "text": "\\pm 100",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ดิฟผิดได้ $x^2 dx$ หรือเอา $10^2$ คูณดื้อๆ โดยไม่คูณ 3"
+      }
+    ]
+  },
+  {
+    "question_number": 14,
+    "topic": "L'Hôpital's Rule",
+    "question": "จงหาค่าของ $\\lim_{x \\rightarrow 0} \\frac{\\sin(3x)}{\\ln(1 + 2x)}$",
+    "choices": [
+      {
+        "text": "1.5",
+        "is_correct": true,
+        "explanation": "แทนค่าได้ 0/0 ใช้กฎโลปิตาล ดิฟเศษได้ $3\\cos(3x)$ ดิฟส่วนได้ $2/(1+2x)$ แทน $x=0$ ได้ $3(1) / 2(1) = 3/2 = 1.5$"
+      },
+      {
+        "text": "1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดว่าสัมประสิทธิ์ด้านในตัดกันหมด หรือเดาค่ามาตรฐาน"
+      },
+      {
+        "text": "0",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เห็นตัวเศษเป็น $\\sin(0) = 0$ เลยตอบ 0 ทันที"
+      },
+      {
+        "text": "\\frac{2}{3}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จำอัตราส่วนกลับกันระหว่างตัวเศษกับตัวส่วน"
+      }
+    ]
+  },
+  {
+    "question_number": 15,
+    "topic": "Integration (Trigonometric Substitution)",
+    "question": "ข้อใดคือการกำหนดตัวแปรเพื่อใช้เทคนิคการแทนค่าด้วยฟังก์ชันตรีโกณมิติ (Trigonometric Substitution) ในการหาค่า $\\int \\frac{1}{\\sqrt{9 - x^2}} dx$",
+    "choices": [
+      {
+        "text": "x = 3 \\sin \\theta",
+        "is_correct": true,
+        "explanation": "รูปแบบ $\\sqrt{a^2 - x^2}$ ต้องใช้การกำหนด $x = a \\sin \\theta$ ในที่นี้ $a^2 = 9$ ดังนั้น $a = 3$ จึงต้องให้ $x = 3 \\sin \\theta$"
+      },
+      {
+        "text": "x = 3 \\tan \\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: การให้ $x = a \\tan \\theta$ ใช้กับรูปแบบ $\\sqrt{a^2 + x^2}$"
+      },
+      {
+        "text": "x = 9 \\sin \\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมถอดรากที่สองของ 9 ดึงเลขมาใช้เลย"
+      },
+      {
+        "text": "x = 3 \\sec \\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: การให้ $x = a \\sec \\theta$ ใช้กับรูปแบบ $\\sqrt{x^2 - a^2}$"
+      }
+    ]
+  },
+  {
+    "question_number": 16,
+    "topic": "Integration (Partial Fractions)",
+    "question": "จงเขียนรูปแบบของผลบวกเศษส่วนย่อย (Partial Fractions) ของฟังก์ชัน $\\frac{x - 1}{x^2(x^2 + 4)}$",
+    "choices": [
+      {
+        "text": "\\frac{A}{x} + \\frac{B}{x^2} + \\frac{Cx + D}{x^2 + 4}",
+        "is_correct": true,
+        "explanation": "ตัวส่วน $x^2$ เป็นปัจจัยเชิงเส้นซ้ำ (Repeated Linear Factor) ต้องแยกเป็น $A/x + B/x^2$ และตัวส่วน $x^2 + 4$ เป็นปัจจัยกำลังสองที่แยกตัวประกอบต่อไม่ได้ (Irreducible Quadratic Factor) ต้องมีเศษเป็นพหุนามดีกรีหนึ่งคือ $Cx + D$"
+      },
+      {
+        "text": "\\frac{A}{x^2} + \\frac{B}{x^2 + 4}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมกระจายพจน์ของเลขชี้กำลังของ x และลืมใช้ Cx+D สำหรับพหุนามกำลังสอง"
+      },
+      {
+        "text": "\\frac{A}{x} + \\frac{B}{x} + \\frac{C}{x^2 + 4}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เขียนปัจจัยเชิงเส้นซ้ำผิดรูปแบบ และใช้ค่าคงที่ตัวเดียวกับปัจจัยกำลังสอง"
+      },
+      {
+        "text": "\\frac{A}{x} + \\frac{B}{x^2} + \\frac{C}{x^2 + 4}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: แยกฝั่ง x ถูก แต่ฝั่งกำลังสองที่แยกไม่ได้ลืมใช้ Cx+D (ใช้แค่ C ตัวเดียว)"
+      }
+    ]
+  },
+  {
+    "question_number": 17,
+    "topic": "Applications of Integration (Volume - Disk Method)",
+    "question": "จงเขียนปริมาตร V ของทรงตันที่เกิดจากการหมุนพื้นที่ที่ปิดล้อมด้วยเส้นโค้ง $y = \\sqrt{x}$, เส้นตรง $x = 4$ และแกน X โดยหมุนรอบแกน X ด้วยวิธี Disk",
+    "choices": [
+      {
+        "text": "V = \\pi \\int_0^4 (\\sqrt{x})^2 dx",
+        "is_correct": true,
+        "explanation": "วิธี Disk รอบแกน X สูตรคือ $V = \\pi \\int_a^b (f(x))^2 dx$ จากกราฟ $y = \\sqrt{x}$ ขอบเขตจาก 0 ถึง 4 จะได้ $V = \\pi \\int_0^4 x dx$"
+      },
+      {
+        "text": "V = 2\\pi \\int_0^4 x \\sqrt{x} dx",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือสูตรของการหาปริมาตรด้วยวิธี Shell (เปลือกทรงกระบอก) รอบแกน Y"
+      },
+      {
+        "text": "V = \\pi \\int_0^2 (y^2)^2 dy",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เป็นการตั้งสมการหมุนรอบแกน Y ด้วยวิธี Disk ซึ่งให้ปริมาตรคนละส่วนกัน"
+      },
+      {
+        "text": "V = \\int_0^4 (\\sqrt{x})^2 dx",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมคูณ $\\pi$ ด้านหน้าสุดของอินทิกรัล"
+      }
+    ]
+  },
+  {
+    "question_number": 18,
+    "topic": "Integration by Parts",
+    "question": "จงหาค่าของ $\\int \\ln x \\, dx$",
+    "choices": [
+      {
+        "text": "x \\ln x - x + C",
+        "is_correct": true,
+        "explanation": "ใช้วิธี Integration by Parts ให้ $u = \\ln x$ และ $dv = dx$ จะได้ $du = (1/x)dx$ และ $v = x$ เข้าสูตร $uv - \\int v du$ จะได้ $x\\ln x - \\int x(1/x)dx = x\\ln x - \\int 1 dx = x\\ln x - x + C$"
+      },
+      {
+        "text": "\\frac{1}{x} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สับสนกับการหาอนุพันธ์ (ดิฟ) $\\ln x$"
+      },
+      {
+        "text": "x \\ln x + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: อินทิเกรต by parts แล้วลืมลบพจน์หลัง $\\int v du$"
+      },
+      {
+        "text": "\\frac{\\ln^2 x}{2} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: มองเหมือนเป็นฟังก์ชันพหุนาม (เอากำลังไปบวกหนึ่งแล้วหารด้วยกำลังนั้น) ซึ่งผิดหลักการ"
+      }
+    ]
+  },
+  {
+    "question_number": 19,
+    "topic": "Improper Integrals",
+    "question": "อินทิกรัลไม่ตรงแบบ $\\int_0^1 \\frac{1}{\\sqrt{x}} dx$ ลู่เข้า (Converge) หรือ ลู่ออก (Diverge) และมีค่าเท่าใด",
+    "choices": [
+      {
+        "text": "ลู่เข้า มีค่าเท่ากับ 2",
+        "is_correct": true,
+        "explanation": "ฟังก์ชันหาค่าไม่ได้ที่ x=0 เป็น Improper Type 2 เปลี่ยนเป็น $\\lim_{t \\rightarrow 0^+} \\int_t^1 x^{-1/2} dx = \\lim_{t \\rightarrow 0^+} [2x^{1/2}]_t^1 = \\lim_{t \\rightarrow 0^+} (2 - 2\\sqrt{t}) = 2 - 0 = 2$"
+      },
+      {
+        "text": "ลู่ออก",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดว่าเส้นโค้งพุ่งไปอนันต์ที่แกน Y แล้วพื้นที่ต้องลู่ออกเสมอ (ลืมตรวจสอบด้วยลิมิต)"
+      },
+      {
+        "text": "ลู่เข้า มีค่าเท่ากับ 1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: อินทิเกรตผิดเป็น $x^{1/2}$ โดยลืมคูณ 2 ที่เป็นสัมประสิทธิ์ส่วนกลับด้านหน้า"
+      },
+      {
+        "text": "หาค่าไม่ได้",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดว่าถ้าแทนขอบ 0 ลงไปตรงๆ แล้วส่วนเป็น 0 คือตอบหาค่าไม่ได้ทันทีโดยไม่แปลงลิมิต"
+      }
+    ]
+  },
+  {
+    "question_number": 20,
+    "topic": "Vectors (Dot Product & Projection)",
+    "question": "กำหนดให้ $\\vec{u} = \\langle 2, -1, 3 \\rangle$ และ $\\vec{v} = \\langle 1, 1, -1 \\rangle$ จงหาผลคูณเชิงสเกลาร์ (Dot Product) $\\vec{u} \\cdot \\vec{v}$",
+    "choices": [
+      {
+        "text": "-2",
+        "is_correct": true,
+        "explanation": "Dot Product หาได้จากการเอาคอมโพเนนต์ที่ตรงกันคูณกันแล้วนำมาบวกกัน: $(2)(1) + (-1)(1) + (3)(-1) = 2 - 1 - 3 = -2$"
+      },
+      {
+        "text": "2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คำนวณเครื่องหมายผิดตอนเอา $-1 - 3$ ได้เป็น $+1$"
+      },
+      {
+        "text": "\\langle 2, -1, -3 \\rangle",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาคอมโพเนนต์มาคูณกันแล้วปล่อยให้ยังคงเป็นเวกเตอร์ (ผิดหลักการ Dot Product ที่ผลลัพธ์ต้องเป็นสเกลาร์)"
+      },
+      {
+        "text": "0",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สับสนกับการเช็คว่าเวกเตอร์ตั้งฉากกันหรือไม่"
+      }
+    ]
+  },
+  {
+    "question_number": 21,
+    "topic": "Equations of Lines in Space",
+    "question": "จงหาสมการพาราเมตริกของเส้นตรงที่ผ่านจุด $P(1, -2, 3)$ และขนานกับเวกเตอร์ $\\vec{v} = \\langle 4, 0, -1 \\rangle$",
+    "choices": [
+      {
+        "text": "x = 1 + 4t, y = -2, z = 3 - t",
+        "is_correct": true,
+        "explanation": "สมการพาราเมตริกของเส้นตรงคือ $\\langle x, y, z \\rangle = \\langle x_0, y_0, z_0 \\rangle + t \\vec{v}$ จะได้ $x = 1 + 4t$, $y = -2 + 0t$, $z = 3 - t$"
+      },
+      {
+        "text": "x = 4 + t, y = -2t, z = -1 + 3t",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สลับที่ระหว่างจุดตั้งต้น P กับเวกเตอร์ทิศทาง $\\vec{v}$"
+      },
+      {
+        "text": "x = 1 - 4t, y = -2, z = 3 + t",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใส่เครื่องหมายทิศทางสลับกันหมด (แม้จะเป็นเส้นตรงเดียวกันแต่อาจสร้างความสับสนในโครงสร้างหลัก)"
+      },
+      {
+        "text": "4(x - 1) + 0(y + 2) - 1(z - 3) = 0",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือสมการของระนาบ (Plane) ที่ตั้งฉากกับเวกเตอร์ $\\vec{v}$ ไม่ใช่สมการเส้นตรง"
+      }
+    ]
+  },
+  {
+    "question_number": 22,
+    "topic": "Equations of Planes",
+    "question": "จงหาสมการของระนาบที่ผ่านจุด $A(0, 1, 2)$ และมีเวกเตอร์แนวฉาก (Normal Vector) คือ $\\vec{n} = \\langle 2, -3, 1 \\rangle$",
+    "choices": [
+      {
+        "text": "2x - 3y + z = -1",
+        "is_correct": true,
+        "explanation": "สมการระนาบ $a(x-x_0) + b(y-y_0) + c(z-z_0) = 0$ แทนค่าจะได้ $2(x-0) - 3(y-1) + 1(z-2) = 0 \\Rightarrow 2x - 3y + 3 + z - 2 = 0 \\Rightarrow 2x - 3y + z + 1 = 0 \\Rightarrow 2x - 3y + z = -1$"
+      },
+      {
+        "text": "2x - 3y + z = 1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ย้ายข้างผิดเครื่องหมาย หรือกระจายลบผิดตอนแรก"
+      },
+      {
+        "text": "0x + 1y + 2z = -1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาจุดไปทำหน้าที่เป็นสัมประสิทธิ์หน้า x, y, z แล้วเอาเวกเตอร์แนวฉากไปแทนตำแหน่งจุด"
+      },
+      {
+        "text": "x - 2y + 3z = 2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นำตัวเลขจากพิกัดมามั่วสลับตำแหน่งกัน"
+      }
+    ]
+  },
+  {
+    "question_number": 23,
+    "topic": "Higher Order Derivatives",
+    "question": "กำหนดให้ $y = \\cos(2x)$ จงหาอนุพันธ์อันดับที่ 4 หรือ $y^{(4)}$",
+    "choices": [
+      {
+        "text": "16 \\cos(2x)",
+        "is_correct": true,
+        "explanation": "ดิฟ $\\cos(2x)$ จะวนลูปทุกๆ 4 ครั้ง โดยมี 2 ดึงออกมาทุกครั้ง (กฎลูกโซ่): $y^{\\prime} = -2\\sin(2x), y^{\\prime\\prime} = -4\\cos(2x), y^{\\prime\\prime\\prime} = 8\\sin(2x), y^{(4)} = 16\\cos(2x)$"
+      },
+      {
+        "text": "-16 \\cos(2x)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สับสนเครื่องหมายของการดิฟ sin และ cos วนลูป"
+      },
+      {
+        "text": "8 \\cos(2x)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คำนวณเลขยกกำลัง $2^4$ ผิด คิดว่าเป็น 8"
+      },
+      {
+        "text": "16 \\sin(2x)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ดิฟ 4 ครั้งแล้วสับสนว่าฟังก์ชันจะเปลี่ยนจาก cos เป็น sin"
+      }
+    ]
+  },
+  {
+    "question_number": 24,
+    "topic": "Numerical Integration",
+    "question": "หากใช้หลักเกณฑ์สี่เหลี่ยมคางหมู (Trapezoidal Rule) ในการประมาณค่า $\\int_0^2 x^2 dx$ โดยแบ่งเป็น $n = 2$ ช่วง ค่าประมาณที่ได้คือเท่าใด",
+    "choices": [
+      {
+        "text": "3",
+        "is_correct": true,
+        "explanation": "ช่วงกว้าง $\\Delta x = (2-0)/2 = 1$ จุดแบ่งคือ $x_0 = 0, x_1 = 1, x_2 = 2$ สูตรสี่เหลี่ยมคางหมู: $T_2 = \\frac{\\Delta x}{2}[f(x_0) + 2f(x_1) + f(x_2)] = \\frac{1}{2}[0^2 + 2(1^2) + 2^2] = \\frac{1}{2}[0 + 2 + 4] = \\frac{6}{2} = 3$"
+      },
+      {
+        "text": "2.67",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือค่าแม่นยำ (Exact Value) ของการอินทิเกรต $\\int x^2 dx = x^3/3 = 8/3 \\approx 2.67$ โจทย์ถามค่าประมาณจากสี่เหลี่ยมคางหมู"
+      },
+      {
+        "text": "4",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมคูณ 2 ที่ $f(x_1)$ หรือรวมเลขผิดพลาด"
+      },
+      {
+        "text": "2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คำนวณความกว้างช่วงผิด หรือไม่ใช้สูตรคางหมู ไปใช้สี่เหลี่ยมผืนผ้าธรรมดา"
+      }
+    ]
+  },
+  {
+    "question_number": 25,
+    "topic": "Absolute Extrema",
+    "question": "จงหาค่าสูงสุดสัมบูรณ์ (Absolute Maximum) ของฟังก์ชัน $f(x) = x^3 - 3x^2 + 1$ บนช่วง $[-1, 3]$",
+    "choices": [
+      {
+        "text": "1",
+        "is_correct": true,
+        "explanation": "หาค่าวิกฤต: $f^{\\prime}(x) = 3x^2 - 6x = 3x(x - 2) = 0 \\Rightarrow x = 0, 2$ ตรวจสอบค่า f ที่จุดวิกฤตและจุดปลายช่วง: $f(-1) = -3, f(0) = 1, f(2) = -3, f(3) = 1$ ค่าสูงสุดคือ 1"
+      },
+      {
+        "text": "3",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาจุดขอบ $x=3$ มาตอบเป็นค่าสูงสุดโดยไม่ได้นำไปแทนค่าในฟังก์ชันเพื่อหาค่า y"
+      },
+      {
+        "text": "0",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาค่าวิกฤต $x=0$ มาตอบเป็นค่าสูงสุดแทนที่จะตอบค่า y"
+      },
+      {
+        "text": "-3",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือค่าต่ำสุดสัมบูรณ์ (Absolute Minimum) ไม่ใช่ค่าสูงสุด"
+      }
+    ]
+  },
+  {
+    "question_number": 26,
+    "topic": "Maclaurin Series",
+    "question": "จงหาพหุนามแมคลอรินดีกรี 2 ของฟังก์ชัน $f(x) = e^{-x}$",
+    "choices": [
+      {
+        "text": "1 - x + \\frac{x^2}{2}",
+        "is_correct": true,
+        "explanation": "สูตรแมคลอริน $P_2(x) = f(0) + f^{\\prime}(0)x + \\frac{f^{\\prime\\prime}(0)}{2!}x^2$ โดย $f(x) = e^{-x} \\Rightarrow f(0)=1$, $f^{\\prime}(x) = -e^{-x} \\Rightarrow f^{\\prime}(0)=-1$, $f^{\\prime\\prime}(x) = e^{-x} \\Rightarrow f^{\\prime\\prime}(0)=1$ นำไปแทนจะได้ $1 - x + \\frac{1}{2}x^2$"
+      },
+      {
+        "text": "1 + x + \\frac{x^2}{2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือพหุนามแมคลอรินของ $e^x$ ลืมเรื่องกฎลูกโซ่ที่ดึงเครื่องหมายลบออกมาตอนดิฟ"
+      },
+      {
+        "text": "1 - x + x^2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมหารด้วย $2!$ ในพจน์ที่ 3"
+      },
+      {
+        "text": "-1 + x - \\frac{x^2}{2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใส่เครื่องหมายกลับด้านทั้งหมด"
+      }
+    ]
+  },
+  {
+    "question_number": 27,
+    "topic": "Calculus Fundamental Theorem",
+    "question": "กำหนดให้ $F(x) = \\int_1^x t^2 \\sin(t) \\, dt$ จงหาค่าของ $F^{\\prime}(x)$",
+    "choices": [
+      {
+        "text": "x^2 \\sin(x)",
+        "is_correct": true,
+        "explanation": "ตามทฤษฎีบทหลักมูลของแคลคูลัสบทที่ 1 การดิฟฟังก์ชันที่ได้จากการอินทิเกรตฟังก์ชันต่อเนื่องจากค่าคงที่ถึง x สามารถเอา x ไปแทนที่ตัวแปรในอินทิแกรนด์ได้เลย: $\\frac{d}{dx}\\int_a^x f(t) dt = f(x)$"
+      },
+      {
+        "text": "2x \\sin(x) + x^2 \\cos(x)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: มองเป็นการหาอนุพันธ์ผลคูณของโจทย์ ไม่ใช่การใช้ทฤษฎีบท"
+      },
+      {
+        "text": "\\frac{x^3}{3} \\sin(x)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาตัวแปรด้านในไปอินทิเกรตอีกรอบก่อน"
+      },
+      {
+        "text": "x^2 \\cos(x)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เปลี่ยน sin เป็น cos เหมือนการดิฟ ซึ่งผิดหลักทฤษฎีบทหลักมูล"
+      }
+    ]
+  },
+  {
+    "question_number": 28,
+    "topic": "Vector Projections",
+    "question": "ภาพฉายสเกลาร์ (Scalar Projection) ของเวกเตอร์ $\\vec{u} = \\langle 3, 4 \\rangle$ บนเวกเตอร์ $\\vec{v} = \\langle 1, 0 \\rangle$ มีค่าเท่าใด",
+    "choices": [
+      {
+        "text": "3",
+        "is_correct": true,
+        "explanation": "สูตร $comp_{\\vec{v}}\\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|}$ โดยที่ $\\vec{u} \\cdot \\vec{v} = (3)(1) + (4)(0) = 3$ และขนาดของ $\\vec{v}$ คือ $\\sqrt{1^2+0^2} = 1$ ดังนั้นผลลัพธ์คือ $3/1 = 3$"
+      },
+      {
+        "text": "4",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นำค่าสเกลาร์ในแกน y มาตอบโดยไม่ได้คำนวณ หรือสับสนกับการฉายบนแกน Y"
+      },
+      {
+        "text": "5",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: หาขนาดของเวกเตอร์ $\\vec{u}$ (ได้ 5) มาตอบแทนที่จะหาภาพฉาย"
+      },
+      {
+        "text": "\\langle 3, 0 \\rangle",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือ Vector Projection (ภาพฉายเวกเตอร์) แต่โจทย์ถาม Scalar Projection (ภาพฉายสเกลาร์)"
+      }
+    ]
+  },
+  {
+    "question_number": 29,
+    "topic": "Newton-Raphson Method",
+    "question": "จงเขียนสมการในการหาค่าประมาณรอบถัดไป ($x_{n+1}$) สำหรับสมการ $f(x) = x^3 - 5 = 0$ ตามวิธีของนิวตัน-ราฟสัน (Newton-Raphson Method)",
+    "choices": [
+      {
+        "text": "x_{n+1} = x_n - \\frac{x_n^3 - 5}{3x_n^2}",
+        "is_correct": true,
+        "explanation": "สูตรนิวตันราฟสัน: $x_{n+1} = x_n - \\frac{f(x_n)}{f^{\\prime}(x_n)}$ จากโจทย์ $f(x) = x^3 - 5$ จะได้ $f^{\\prime}(x) = 3x^2$ แทนค่าลงสูตรจะได้ตามคำตอบ"
+      },
+      {
+        "text": "x_{n+1} = x_n - \\frac{3x_n^2}{x_n^3 - 5}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จำสูตรสลับกัน เอาอนุพันธ์ไว้ด้านบน เอาฟังก์ชันไว้ด้านล่าง"
+      },
+      {
+        "text": "x_{n+1} = x_n + \\frac{x_n^3 - 5}{3x_n^2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จำเครื่องหมายในสูตรผิดเป็นเครื่องหมายบวก"
+      },
+      {
+        "text": "x_{n+1} = \\frac{x_n^3 - 5}{3x_n^2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมเอา $x_n$ ด้านหน้ามาลบออก"
+      }
+    ]
+  },
+  {
+    "question_number": 30,
+    "topic": "Integration of Exponential Functions",
+    "question": "จงหาค่าของ $\\int e^{2x + 1} dx$",
+    "choices": [
+      {
+        "text": "\\frac{1}{2} e^{2x + 1} + C",
+        "is_correct": true,
+        "explanation": "กำหนดให้ $u = 2x + 1$ จะได้ $du = 2 dx \\Rightarrow dx = du/2$ แทนค่าอินทิกรัลจะได้ $\\int e^u \\frac{du}{2} = \\frac{1}{2} \\int e^u du = \\frac{1}{2} e^u + C = \\frac{1}{2} e^{2x + 1} + C$"
+      },
+      {
+        "text": "2 e^{2x + 1} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ทำสับสนระหว่างการอินทิเกรตและการดิฟ (ถ้าดิฟต้องคูณด้วย 2)"
+      },
+      {
+        "text": "e^{2x + 1} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมชดเชยการแทนตัวแปร (Chain Rule ย้อนกลับ)"
+      },
+      {
+        "text": "\\frac{e^{2x + 2}}{2x + 2} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: มองฟังก์ชันเอกซ์โพเนนเชียลเป็นแบบพหุนาม (ยกกำลังบวกหนึ่งแล้วหาร) ซึ่งผิดหลัก"
+      }
+    ]
+  },
+  {
+    "question_number": 31,
+    "topic": "Limits (L'Hôpital's Rule)",
+    "question": "จงหาค่าของ $\\lim_{x \\rightarrow 0} \\frac{e^x - 1 - x}{x^2}$",
+    "choices": [
+      {
+        "text": "\\frac{1}{2}",
+        "is_correct": true,
+        "explanation": "แทนค่าได้ 0/0 ใช้โลปิตาลครั้งที่ 1 ได้ $(e^x - 1)/2x$ แทนค่ายังได้ 0/0 ใช้โลปิตาลครั้งที่ 2 ได้ $e^x / 2$ แทน $x=0$ จะได้ $1/2$"
+      },
+      {
+        "text": "1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใช้โลปิตาลแค่ครั้งเดียวแล้วแทนค่าผิด หรือเดาคำตอบมาตรฐาน"
+      },
+      {
+        "text": "0",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เห็นตัวเศษมีตัวแปรเยอะกว่าตัวส่วนตอนแทนค่ารอบแรกเลยเดาว่าตอบ 0"
+      },
+      {
+        "text": "\\infty",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดว่าส่วนเป็น 0 แล้วหาค่าไม่ได้ลู่ออก"
+      }
+    ]
+  },
+  {
+    "question_number": 32,
+    "topic": "Limits Involving Infinity",
+    "question": "จงหาค่าของ $\\lim_{x \\rightarrow \\infty} \\left( \\sqrt{x^2 + 4x} - x \\right)$",
+    "choices": [
+      {
+        "text": "2",
+        "is_correct": true,
+        "explanation": "คูณด้วยคอนจูเกต $(\\sqrt{x^2+4x}+x)/(\\sqrt{x^2+4x}+x)$ จะได้เศษคือ $4x$ ส่วนคือ $\\sqrt{x^2+4x}+x$ หารด้วย x ตลอด จะได้ $\\lim \\frac{4}{\\sqrt{1+4/x}+1} = \\frac{4}{1+1} = 2$"
+      },
+      {
+        "text": "0",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดว่า $\\sqrt{x^2}$ คือ x แล้วเอา x-x ได้ 0 ดื้อๆ"
+      },
+      {
+        "text": "4",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมตัวส่วนที่เกิดจากการคูณคอนจูเกต เอาแค่สัมประสิทธิ์หน้า x ด้านบนมาตอบ"
+      },
+      {
+        "text": "\\infty",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เห็น $\\infty - \\infty$ แล้วคิดว่าตอบอนันต์"
+      }
+    ]
+  },
+  {
+    "question_number": 33,
+    "topic": "Derivatives (Quotient Rule)",
+    "question": "กำหนดให้ $y = \\frac{2x - 1}{x + 3}$ จงหา $y^\\prime$",
+    "choices": [
+      {
+        "text": "\\frac{7}{(x+3)^2}",
+        "is_correct": true,
+        "explanation": "ใช้กฎดิฟผลหาร: $(ล่าง(ดิฟบน) - บน(ดิฟล่าง)) / ล่าง^2 = ((x+3)(2) - (2x-1)(1)) / (x+3)^2 = (2x+6-2x+1) / (x+3)^2 = 7/(x+3)^2$"
+      },
+      {
+        "text": "\\frac{5}{(x+3)^2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: กระจายเครื่องหมายลบในวงเล็บหลังผิด กลายเป็น $6-1=5$"
+      },
+      {
+        "text": "2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ดิฟเศษส่วนด้วยการดิฟบนหารด้วยดิฟล่างดื้อๆ (ดิฟบนได้ 2, ดิฟล่างได้ 1)"
+      },
+      {
+        "text": "-\\frac{7}{(x+3)^2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สลับบนล่างในสูตรดิฟผลหารเป็น (บนดิฟล่าง - ล่างดิฟบน)"
+      }
+    ]
+  },
+  {
+    "question_number": 34,
+    "topic": "Derivatives (Chain Rule)",
+    "question": "จงหาอนุพันธ์ของ $f(x) = \\sin^3(2x)$",
+    "choices": [
+      {
+        "text": "6 \\sin^2(2x) \\cos(2x)",
+        "is_correct": true,
+        "explanation": "ใช้กฎลูกโซ่ 3 ชั้น: ดิฟเลขชี้กำลัง $3\\sin^2(2x)$ -> ดิฟ sin ได้ $\\cos(2x)$ -> ดิฟไส้ 2x ได้ 2 นำมาคูณกันได้ $3 \\cdot 2 \\cdot \\sin^2(2x)\\cos(2x) = 6\\sin^2(2x)\\cos(2x)$"
+      },
+      {
+        "text": "3 \\sin^2(2x) \\cos(2x)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมดิฟไส้ 2x (ลืมคูณ 2 ตัวสุดท้าย)"
+      },
+      {
+        "text": "-6 \\sin^2(2x) \\cos(2x)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จำเครื่องหมายดิฟ sin ผิดเป็นลบ"
+      },
+      {
+        "text": "6 \\cos^2(2x)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ดิฟกำลังแล้วเปลี่ยนฟังก์ชันไปพร้อมๆ กันแบบผิดกฎ"
+      }
+    ]
+  },
+  {
+    "question_number": 35,
+    "topic": "Logarithmic Differentiation",
+    "question": "กำหนดให้ $y = x^x$ จงหา $\\frac{dy}{dx}$",
+    "choices": [
+      {
+        "text": "x^x (\\ln x + 1)",
+        "is_correct": true,
+        "explanation": "Take ln ทั้งสองข้าง: $\\ln y = x \\ln x$ ดิฟทั้งสองข้าง: $(1/y)y^\\prime = x(1/x) + (\\ln x)(1) = 1 + \\ln x$ ดังนั้น $y^\\prime = y(1+\\ln x) = x^x(1+\\ln x)$"
+      },
+      {
+        "text": "x \\cdot x^{x-1}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: มองเป็นกฎพหุนามดึงกำลังลงมา (ใช้ไม่ได้เมื่อฐานและกำลังเป็นตัวแปรทั้งคู่)"
+      },
+      {
+        "text": "x^x \\ln x",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: มองเป็นฟังก์ชันเอกซ์โพเนนเชียลแบบฐานเป็นค่าคงที่ $a^x$"
+      },
+      {
+        "text": "1 + \\ln x",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมคูณ y กลับมาตอนจบ"
+      }
+    ]
+  },
+  {
+    "question_number": 36,
+    "topic": "Applications of Derivatives (Critical Points)",
+    "question": "จงหาค่าวิกฤตของฟังก์ชัน $f(x) = 2x^3 - 3x^2 - 12x + 5$",
+    "choices": [
+      {
+        "text": "x = -1, 2",
+        "is_correct": true,
+        "explanation": "หา $f^\\prime(x) = 6x^2 - 6x - 12 = 0$ ดึง 6 ออก: $6(x^2 - x - 2) = 0$ แยกตัวประกอบได้ $6(x-2)(x+1) = 0$ จะได้ $x = 2, -1$"
+      },
+      {
+        "text": "x = 1, -2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: แยกตัวประกอบผิดเครื่องหมาย"
+      },
+      {
+        "text": "x = 0, 5",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาพจน์ท้ายกับจุดตัดแกน Y มาตอบ"
+      },
+      {
+        "text": "x = -1, 0, 2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดว่ามีจุดวิกฤตที่ x=0 เสมอ"
+      }
+    ]
+  },
+  {
+    "question_number": 37,
+    "topic": "Applications of Derivatives (Inflection Points)",
+    "question": "ฟังก์ชัน $f(x) = x^4 - 6x^3 + 12x^2$ มีจุดเปลี่ยนเว้า (Inflection Points) ที่ $x$ เท่ากับเท่าใด",
+    "choices": [
+      {
+        "text": "x = 1, 2",
+        "is_correct": true,
+        "explanation": "จุดเปลี่ยนเว้าหาจาก $f^{\\prime\\prime}(x) = 0$: $f^\\prime(x) = 4x^3 - 18x^2 + 24x$, $f^{\\prime\\prime}(x) = 12x^2 - 36x + 24 = 12(x^2 - 3x + 2) = 12(x-1)(x-2)=0$ ได้ $x=1, 2$"
+      },
+      {
+        "text": "x = 0, 2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: หา $f^\\prime(x)$ แล้วดึงตัวร่วมผิด หรือจำสับสนกับค่าวิกฤต"
+      },
+      {
+        "text": "x = -1, -2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: แยกตัวประกอบอนุพันธ์อันดับสองผิดเครื่องหมาย"
+      },
+      {
+        "text": "ไม่มีจุดเปลี่ยนเว้า",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดว่ากราฟเลขชี้กำลังคู่จะโค้งหงายตลอดไป (Concave up)"
+      }
+    ]
+  },
+  {
+    "question_number": 38,
+    "topic": "Optimization",
+    "question": "ชาวนาต้องการล้อมรั้วรูปสี่เหลี่ยมผืนผ้าแนบติดกับแม่น้ำ (ล้อมแค่ 3 ด้าน) โดยมีลวดหนามยาว 200 เมตร จงหาพื้นที่ที่มากที่สุดที่จะล้อมได้",
+    "choices": [
+      {
+        "text": "5,000 ตารางเมตร",
+        "is_correct": true,
+        "explanation": "ให้ด้านกว้าง = x, ด้านยาว = y จะได้ $2x + y = 200 \\Rightarrow y = 200 - 2x$ พื้นที่ $A(x) = xy = x(200-2x) = 200x - 2x^2$ หา $A^\\prime(x) = 200 - 4x = 0 \\Rightarrow x = 50$ ดังนั้น $y = 100$ พื้นที่ = $50 \\times 100 = 5,000$"
+      },
+      {
+        "text": "2,500 ตารางเมตร",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดว่าทำเป็นรูปสี่เหลี่ยมจัตุรัสจะดีที่สุด กว้าง 50 ยาว 50"
+      },
+      {
+        "text": "10,000 ตารางเมตร",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดเลข 100 * 100 ล้อมรั้วเต็ม 4 ด้าน"
+      },
+      {
+        "text": "4,000 ตารางเมตร",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดพลาดในการหาอนุพันธ์หรือแก้สมการผิด"
+      }
+    ]
+  },
+  {
+    "question_number": 39,
+    "topic": "Basic Integration",
+    "question": "จงหาค่าของ $\\int \\left( 3\\sqrt{x} - \\frac{2}{x^3} \\right) dx$",
+    "choices": [
+      {
+        "text": "2x^{3/2} + x^{-2} + C",
+        "is_correct": true,
+        "explanation": "เปลี่ยนรูปเป็น $\\int (3x^{1/2} - 2x^{-3}) dx = 3(x^{3/2})/(3/2) - 2(x^{-2})/(-2) + C = 2x^{3/2} + x^{-2} + C$"
+      },
+      {
+        "text": "\\frac{9}{2}x^{-1/2} + 6x^{-4} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สับสนกับการหาอนุพันธ์ (ดิฟ) แทนที่จะอินทิเกรต"
+      },
+      {
+        "text": "2x^{3/2} - x^{-2} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมลบจะตัดลบให้กลายเป็นบวกในพจน์ที่สอง"
+      },
+      {
+        "text": "x^{3/2} + 2x^{-2} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: กลับเศษส่วนสลับกันตอนคูณเลขชี้กำลังที่บวกมาใหม่"
+      }
+    ]
+  },
+  {
+    "question_number": 40,
+    "topic": "Integration (Substitution)",
+    "question": "จงหาค่าของ $\\int \\frac{\\ln x}{x} dx$",
+    "choices": [
+      {
+        "text": "\\frac{(\\ln x)^2}{2} + C",
+        "is_correct": true,
+        "explanation": "ใช้การแทนค่า $u = \\ln x \\Rightarrow du = (1/x) dx$ อินทิกรัลกลายเป็น $\\int u \\, du = \\frac{u^2}{2} + C = \\frac{(\\ln x)^2}{2} + C$"
+      },
+      {
+        "text": "\\ln(\\ln x) + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เห็น 1/x นึกว่าจะได้ ln อีกที"
+      },
+      {
+        "text": "1/x^2 + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ดิฟผสมกันมั่ว"
+      },
+      {
+        "text": "x \\ln x - x + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จำสูตรของ $\\int \\ln x dx$ มาตอบ (Integration by parts)"
+      }
+    ]
+  },
+  {
+    "question_number": 41,
+    "topic": "Integration by Parts",
+    "question": "จงหาค่าของ $\\int x e^{3x} dx$",
+    "choices": [
+      {
+        "text": "\\frac{x e^{3x}}{3} - \\frac{e^{3x}}{9} + C",
+        "is_correct": true,
+        "explanation": "ให้ $u = x \\Rightarrow du = dx$ และ $dv = e^{3x} dx \\Rightarrow v = \\frac{1}{3}e^{3x}$ เข้าสูตร $uv - \\int v du$ จะได้ $\\frac{1}{3}xe^{3x} - \\int \\frac{1}{3}e^{3x} dx = \\frac{1}{3}xe^{3x} - \\frac{1}{9}e^{3x} + C$"
+      },
+      {
+        "text": "x e^{3x} - \\frac{e^{3x}}{3} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมหาร 3 ตอนหา v จาก dv"
+      },
+      {
+        "text": "\\frac{x^2}{2} e^{3x} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: อินทิเกรตแต่ละตัวคูณกันตรงๆ"
+      },
+      {
+        "text": "\\frac{x e^{3x}}{3} + \\frac{e^{3x}}{9} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เครื่องหมายเป็นบวก (จำสูตร by parts เป็นพจน์บวก)"
+      }
+    ]
+  },
+  {
+    "question_number": 42,
+    "topic": "Definite Integrals",
+    "question": "จงหาค่าของ $\\int_0^{\\pi/2} \\sin^3(x) \\cos(x) dx$",
+    "choices": [
+      {
+        "text": "\\frac{1}{4}",
+        "is_correct": true,
+        "explanation": "ให้ $u = \\sin(x) \\Rightarrow du = \\cos(x) dx$ ขอบเขตเปลี่ยน: $x=0 \\Rightarrow u=0, x=\\pi/2 \\Rightarrow u=1$ ได้ $\\int_0^1 u^3 du = \\left[ \\frac{u^4}{4} \\right]_0^1 = \\frac{1}{4}$"
+      },
+      {
+        "text": "0",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เดาเลข 0 เพราะมีตรีโกณ"
+      },
+      {
+        "text": "1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมส่วน 4 ตอนอินทิเกรต"
+      },
+      {
+        "text": "-\\frac{1}{4}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สับสนเครื่องหมายดิฟ/อินทิเกรต cos ว่าจะได้ลบ"
+      }
+    ]
+  },
+  {
+    "question_number": 43,
+    "topic": "Area Between Curves",
+    "question": "พื้นที่ปิดล้อมด้วยพาราโบลา $y = x^2$ และเส้นตรง $y = 2x$ มีค่าเท่าใด",
+    "choices": [
+      {
+        "text": "\\frac{4}{3}",
+        "is_correct": true,
+        "explanation": "หาจุดตัด $x^2 = 2x \\Rightarrow x(x-2)=0 \\Rightarrow x=0, 2$ ในช่วงเส้นตรง $2x$ อยู่บน $x^2$ ได้พื้นที่ $\\int_0^2 (2x - x^2) dx = \\left[ x^2 - x^3/3 \\right]_0^2 = 4 - 8/3 = 4/3$"
+      },
+      {
+        "text": "\\frac{8}{3}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คาบเกี่ยวกับการหาปริมาตรบางชนิด หรือคิดเลขลบผิด"
+      },
+      {
+        "text": "4",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมลบ 8/3"
+      },
+      {
+        "text": "\\frac{2}{3}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: หักลบผิด $4 - 8/3$"
+      }
+    ]
+  },
+  {
+    "question_number": 44,
+    "topic": "Volume (Washer Method)",
+    "question": "จงหาสูตรปริมาตร V ของทรงตันที่เกิดจากการหมุนพื้นที่ระหว่าง $y=x$ และ $y=x^2$ รอบแกน X",
+    "choices": [
+      {
+        "text": "\\pi \\int_0^1 (x^2 - x^4) dx",
+        "is_correct": true,
+        "explanation": "จุดตัด 0 ถึง 1 หมุนแบบ Washer รอบ X: $V = \\pi \\int (R_{นอก}^2 - R_{ใน}^2) dx = \\pi \\int_0^1 ( (x)^2 - (x^2)^2 ) dx = \\pi \\int_0^1 (x^2 - x^4) dx$"
+      },
+      {
+        "text": "\\pi \\int_0^1 (x - x^2)^2 dx",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาฟังก์ชันลบกันก่อนค่อยยกกำลังสอง ซึ่งผิดหลัก Washer"
+      },
+      {
+        "text": "2\\pi \\int_0^1 x(x - x^2) dx",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือสูตร Shell method หมุนรอบแกน Y"
+      },
+      {
+        "text": "\\pi \\int_0^1 (x^4 - x^2) dx",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สลับฟังก์ชันใน/นอกผิด ปริมาตรจะติดลบ"
+      }
+    ]
+  },
+  {
+    "question_number": 45,
+    "topic": "Volume (Shell Method)",
+    "question": "การหาปริมาตรโดยวิธี Shell ของการหมุนพื้นที่ใต้โค้ง $y=\\sin x$ ตั้งแต่ $x=0$ ถึง $x=\\pi$ รอบแกน Y ตั้งสมการได้ตรงกับข้อใด",
+    "choices": [
+      {
+        "text": "2\\pi \\int_0^\\pi x \\sin x \\, dx",
+        "is_correct": true,
+        "explanation": "วิธีเปลือกทรงกระบอก (Shell) รอบแกน Y สูตรคือ $V = \\int 2\\pi x f(x) dx$ ดังนั้น $V = 2\\pi \\int_0^\\pi x \\sin x \\, dx$"
+      },
+      {
+        "text": "\\pi \\int_0^\\pi \\sin^2 x \\, dx",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือ Disk method หมุนรอบแกน X"
+      },
+      {
+        "text": "2\\pi \\int_0^\\pi \\sin x \\, dx",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมคูณรัศมี (x) ในสูตร Shell"
+      },
+      {
+        "text": "\\pi \\int_0^\\pi x \\sin^2 x \\, dx",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ผสมสูตร Disk กับ Shell ปนกัน"
+      }
+    ]
+  },
+  {
+    "question_number": 46,
+    "topic": "Improper Integrals",
+    "question": "จงหาค่าของ $\\int_0^\\infty e^{-2x} dx$",
+    "choices": [
+      {
+        "text": "\\frac{1}{2}",
+        "is_correct": true,
+        "explanation": "$\\lim_{t \\to \\infty} \\left[ -\\frac{1}{2}e^{-2x} \\right]_0^t = \\lim_{t \\to \\infty} (-\\frac{1}{2}e^{-2t} - (-\\frac{1}{2})) = 0 + 1/2 = 1/2$"
+      },
+      {
+        "text": "2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: อินทิเกรตผิดเป็นคูณด้วยสัมประสิทธิ์แทนที่จะเป็นส่วนกลับ"
+      },
+      {
+        "text": "\\infty",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เห็นขอบบนเป็นอินฟินิตี้ เลยเดาว่าลู่ออกเสมอ"
+      },
+      {
+        "text": "1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมสัมประสิทธิ์ -1/2 ตอนอินทิเกรต"
+      }
+    ]
+  },
+  {
+    "question_number": 47,
+    "topic": "Arc Length",
+    "question": "จงเขียนรูปอินทิกรัลสำหรับหาความยาวส่วนโค้ง (Arc Length) ของ $y = \\ln(\\sec x)$ จาก $x=0$ ถึง $x=\\pi/4$",
+    "choices": [
+      {
+        "text": "\\int_0^{\\pi/4} \\sec x \\, dx",
+        "is_correct": true,
+        "explanation": "$L = \\int \\sqrt{1 + (y^\\prime)^2} dx$ ดิฟ $y=\\ln(\\sec x)$ ได้ $y^\\prime = \\tan x$ ในรูทคือ $\\sqrt{1+\\tan^2 x} = \\sqrt{\\sec^2 x} = \\sec x$"
+      },
+      {
+        "text": "\\int_0^{\\pi/4} \\tan x \\, dx",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอา $y^\\prime$ มาอินทิเกรตดื้อๆ ลืมเข้าสูตร $\\sqrt{1+(y^\\prime)^2}$"
+      },
+      {
+        "text": "\\int_0^{\\pi/4} \\sqrt{1 + \\sec^2 x} \\, dx",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ดิฟผิดคิดว่าดิฟ $\\ln(\\sec x)$ ได้ $\\sec x$"
+      },
+      {
+        "text": "\\int_0^{\\pi/4} (1 + \\tan^2 x) \\, dx",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมใส่รูทในสูตร"
+      }
+    ]
+  },
+  {
+    "question_number": 48,
+    "topic": "Vectors (Unit Vector)",
+    "question": "เวกเตอร์หนึ่งหน่วยที่ทิศทางเดียวกับ $\\vec{a} = 2\\vec{i} - 2\\vec{j} + \\vec{k}$ คือข้อใด",
+    "choices": [
+      {
+        "text": "\\frac{2}{3}\\vec{i} - \\frac{2}{3}\\vec{j} + \\frac{1}{3}\\vec{k}",
+        "is_correct": true,
+        "explanation": "ขนาดของเวกเตอร์คือ $|\\vec{a}| = \\sqrt{2^2 + (-2)^2 + 1^2} = \\sqrt{4+4+1} = \\sqrt{9} = 3$ นำไปหาร $\\vec{a}$ แต่ละคอมโพเนนต์"
+      },
+      {
+        "text": "2\\vec{i} - 2\\vec{j} + \\vec{k}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ไม่ได้ทำให้เป็นเวกเตอร์หนึ่งหน่วย (หารด้วยขนาด)"
+      },
+      {
+        "text": "-\\frac{2}{3}\\vec{i} + \\frac{2}{3}\\vec{j} - \\frac{1}{3}\\vec{k}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เวกเตอร์หนึ่งหน่วยแต่ทิศทางตรงกันข้าม"
+      },
+      {
+        "text": "\\frac{2}{9}\\vec{i} - \\frac{2}{9}\\vec{j} + \\frac{1}{9}\\vec{k}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: หารด้วยขนาดที่ไม่ได้ถอดรูท ($3^2 = 9$)"
+      }
+    ]
+  },
+  {
+    "question_number": 49,
+    "topic": "Vectors (Angle Between Vectors)",
+    "question": "มุมระหว่างเวกเตอร์ $\\vec{u} = \\langle 1, 0, 1 \\rangle$ และ $\\vec{v} = \\langle 1, 1, 0 \\rangle$ เท่ากับเท่าใด",
+    "choices": [
+      {
+        "text": "60^\\circ (หรือ \\pi/3)",
+        "is_correct": true,
+        "explanation": "สูตร $\\cos \\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|} = \\frac{(1)(1)+0+0}{\\sqrt{2}\\sqrt{2}} = \\frac{1}{2}$ มุมที่ $\\cos$ ได้ $1/2$ คือ $60^\\circ$"
+      },
+      {
+        "text": "90^\\circ (หรือ \\pi/2)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เดาว่าตั้งฉากกัน"
+      },
+      {
+        "text": "45^\\circ (หรือ \\pi/4)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เห็นคอมโพเนนต์ 1,1 คิดว่ามุมคือ 45 องศา"
+      },
+      {
+        "text": "30^\\circ (หรือ \\pi/6)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สับสนค่าฟังก์ชัน $\\cos(\\pi/6) = \\sqrt{3}/2$"
+      }
+    ]
+  },
+  {
+    "question_number": 50,
+    "topic": "Cross Product (Area of Parallelogram)",
+    "question": "พื้นที่สี่เหลี่ยมด้านขนานที่เกิดจาก $\\vec{u} = \\vec{i} + \\vec{j}$ และ $\\vec{v} = \\vec{i} - \\vec{j}$ เท่ากับเท่าใด",
+    "choices": [
+      {
+        "text": "2",
+        "is_correct": true,
+        "explanation": "พื้นที่คือ $|\\vec{u} \\times \\vec{v}|$ หา cross product $(1,1,0) \\times (1,-1,0) = (0, 0, -1-1) = -2\\vec{k}$ ขนาดของ $-2\\vec{k}$ คือ 2"
+      },
+      {
+        "text": "0",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใช้ Dot product หาพื้นที่ (ได้ $1(1)+1(-1)=0$)"
+      },
+      {
+        "text": "\\sqrt{2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาขนาดของแต่ละเวกเตอร์มาคูณกันดื้อๆ โดยไม่หาไซน์ของมุม"
+      },
+      {
+        "text": "4",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดเลขในดีเทอร์มิแนนต์ผิด"
+      }
+    ]
+  },
+  {
+    "question_number": 51,
+    "topic": "Lines and Planes (Intersections)",
+    "question": "จุดตัดระหว่างเส้นตรง $x = 1+t, y = 2-t, z = 3t$ และระนาบ $x + y + z = 12$ คือจุดใด",
+    "choices": [
+      {
+        "text": "(4, -1, 9)",
+        "is_correct": true,
+        "explanation": "แทนค่าลงในระนาบ: $(1+t) + (2-t) + 3t = 12 \\Rightarrow 3 + 3t = 12 \\Rightarrow 3t = 9 \\Rightarrow t = 3$ แทน $t=3$ กลับลงในเส้นตรง ได้ $x=4, y=-1, z=9$"
+      },
+      {
+        "text": "(1, 2, 0)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาจุดอ้างอิงบนเส้นตรงตอน $t=0$ มาตอบ"
+      },
+      {
+        "text": "(2, 1, 3)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: แทน $t=1$ ซึ่งไม่ได้สอดคล้องกับระนาบ ($2+1+3 = 6 \\neq 12$)"
+      },
+      {
+        "text": "ไม่มีจุดตัด (เส้นตรงขนานระนาบ)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: หากดอทเวกเตอร์ทิศทางเส้นตรงกับเวกเตอร์ตั้งฉากระนาบได้ 0 จึงจะขนาน แต่ข้อนี้ $(1, -1, 3) \\cdot (1, 1, 1) = 3 \\neq 0$"
+      }
+    ]
+  },
+  {
+    "question_number": 52,
+    "topic": "Distance from Point to Plane",
+    "question": "ระยะทางจากจุดกำเนิด $(0,0,0)$ ไปยังระนาบ $2x - y + 2z = 9$ เท่ากับเท่าใด",
+    "choices": [
+      {
+        "text": "3",
+        "is_correct": true,
+        "explanation": "สูตร $d = \\frac{|Ax_0 + By_0 + Cz_0 - D|}{\\sqrt{A^2+B^2+C^2}}$ แทนค่าจะได้ $d = \\frac{|2(0) - 1(0) + 2(0) - 9|}{\\sqrt{4+1+4}} = \\frac{|-9|}{\\sqrt{9}} = \\frac{9}{3} = 3$"
+      },
+      {
+        "text": "9",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ตอบแค่ค่า D โดยลืมหารด้วยขนาดของเวกเตอร์แนวฉาก"
+      },
+      {
+        "text": "-3",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมใส่ค่าสัมบูรณ์ ทำให้ระยะทางติดลบ"
+      },
+      {
+        "text": "1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คำนวณรากที่สองผิดพลาด"
+      }
+    ]
+  },
+  {
+    "question_number": 53,
+    "topic": "Maclaurin Polynomial",
+    "question": "พหุนามแมคลอรินดีกรี 3 ของ $\\sin x$ คือข้อใด",
+    "choices": [
+      {
+        "text": "x - \\frac{x^3}{6}",
+        "is_correct": true,
+        "explanation": "สูตร $P_3(x) = f(0) + f^\\prime(0)x + \\frac{f^{\\prime\\prime}(0)}{2!}x^2 + \\frac{f^{\\prime\\prime\\prime}(0)}{3!}x^3$ สำหรับ $\\sin x$ จะมีพจน์เลขคี่: $x - x^3/3! = x - x^3/6$"
+      },
+      {
+        "text": "x + \\frac{x^3}{6}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เครื่องหมายสลับกันผิดพลาด"
+      },
+      {
+        "text": "1 - \\frac{x^2}{2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือพหุนามแมคลอรินดีกรี 2 ของ $\\cos x$"
+      },
+      {
+        "text": "x - \\frac{x^3}{3}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมเรื่องแฟคทอเรียล $3!$ เอาแค่ยกกำลังมาเป็นส่วน"
+      }
+    ]
+  },
+  {
+    "question_number": 54,
+    "topic": "Taylor Polynomial",
+    "question": "เพื่อที่จะหาพหุนามเทย์เลอร์ประมาณค่าของ $\\ln(1.1)$ จุดศูนย์กลางการกระจายพหุนาม ($x=a$) ที่เหมาะสมที่สุดคือเท่าใด",
+    "choices": [
+      {
+        "text": "a = 1",
+        "is_correct": true,
+        "explanation": "เนื่องจาก $\\ln(1) = 0$ ซึ่งเป็นค่าที่คำนวณได้ง่าย และ $1.1$ อยู่ใกล้ 1 จึงเลือกการกระจายรอบจุด $x=1$ เพื่อความแม่นยำสูงที่สุด"
+      },
+      {
+        "text": "a = 0",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: $\\ln(0)$ หาค่าไม่ได้ จึงไม่สามารถกระจายอนุกรมเทย์เลอร์รอบ $x=0$ ได้"
+      },
+      {
+        "text": "a = 1.1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ถ้าใช้ 1.1 เป็นจุดศูนย์กลาง ก็จะต้องการค่า $\\ln(1.1)$ ตั้งแต่เริ่ม ซึ่งคือสิ่งที่ต้องการหาแต่แรก"
+      },
+      {
+        "text": "a = e",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: แม้ $\\ln(e) = 1$ หาค่าได้ แต่ e อยู่ห่างจาก 1.1 มากกว่า 1 ทำให้การประมาณคาดเคลื่อนสูง"
+      }
+    ]
+  },
+  {
+    "question_number": 55,
+    "topic": "Differentials (Percentage Error)",
+    "question": "รัศมีของวงกลมมีค่าผิดพลาดในการวัด $1\\%$ พื้นที่วงกลมจะมีค่าผิดพลาดประมาณกี่เปอร์เซ็นต์",
+    "choices": [
+      {
+        "text": "2\\%",
+        "is_correct": true,
+        "explanation": "พื้นที่ $A = \\pi r^2$ จะได้ $dA = 2\\pi r dr$ หารด้วย $A$: $dA/A = (2\\pi r dr)/(\\pi r^2) = 2 (dr/r)$ โจทย์ให้ $dr/r = 1\\%$ จะได้ $dA/A = 2(1\\%) = 2\\%$"
+      },
+      {
+        "text": "1\\%",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดว่าเปอรเซ็นต์ความผิดพลาดจะเท่ากับรัศมีเลย"
+      },
+      {
+        "text": "0.5\\%",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาไปหาร 2 แทนที่จะคูณ 2"
+      },
+      {
+        "text": "\\pi\\%",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: มองว่าค่า $\\pi$ เป็นปัจจัยในการคำนวณเปอรเซ็นต์"
+      }
+    ]
+  },
+  {
+    "question_number": 56,
+    "topic": "Newton-Raphson Method",
+    "question": "ถ้า $f(x) = x^2 - 2$ และให้ค่าเริ่มต้น $x_0 = 1$ ค่า $x_1$ จากวิธีนิวตัน-ราฟสันคือเท่าใด",
+    "choices": [
+      {
+        "text": "1.5",
+        "is_correct": true,
+        "explanation": "สูตร $x_1 = x_0 - f(x_0)/f^\\prime(x_0)$ โดย $f(1) = 1^2 - 2 = -1$ และ $f^\\prime(x) = 2x \\Rightarrow f^\\prime(1) = 2$ แทนค่า $x_1 = 1 - (-1)/2 = 1 + 0.5 = 1.5$"
+      },
+      {
+        "text": "1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมบวกลบพจน์หลัง คงค่าเดิมไว้"
+      },
+      {
+        "text": "0.5",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คำนวณเครื่องหมายผิด $1 - 1/2 = 0.5$"
+      },
+      {
+        "text": "2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จำสูตรผิดเอาอนุพันธ์หารด้วยฟังก์ชัน"
+      }
+    ]
+  },
+  {
+    "question_number": 57,
+    "topic": "Integration of Trigonometric Powers",
+    "question": "จงหาค่าของ $\\int \\cos^2 x \\, dx$",
+    "choices": [
+      {
+        "text": "\\frac{x}{2} + \\frac{\\sin(2x)}{4} + C",
+        "is_correct": true,
+        "explanation": "ใช้เอกลักษณ์ $\\cos^2 x = \\frac{1+\\cos(2x)}{2}$ อินทิเกรตจะได้ $\\int \\frac{1}{2} dx + \\int \\frac{\\cos(2x)}{2} dx = \\frac{x}{2} + \\frac{\\sin(2x)}{4} + C$"
+      },
+      {
+        "text": "\\frac{\\cos^3 x}{3} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: อินทิเกรตแบบพหุนามดื้อๆ"
+      },
+      {
+        "text": "\\frac{x}{2} - \\frac{\\sin(2x)}{4} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จำเครื่องหมายในเอกลักษณ์ผิดเป็น $\\frac{1-\\cos(2x)}{2}$ (นั่นคือ $\\sin^2 x$)"
+      },
+      {
+        "text": "- \\frac{\\sin(2x)}{4} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมพจน์หน้า $\\frac{x}{2}$"
+      }
+    ]
+  },
+  {
+    "question_number": 58,
+    "topic": "Applications of Derivatives (Velocity/Acceleration)",
+    "question": "อนุภาคหนึ่งเคลื่อนที่ด้วยสมการตำแหน่ง $s(t) = t^3 - 6t^2 + 9t$ จงหาว่าที่เวลาใดอนุภาคจะมีความเร่งเป็นศูนย์",
+    "choices": [
+      {
+        "text": "t = 2",
+        "is_correct": true,
+        "explanation": "ความเร็ว $v(t) = s^\\prime(t) = 3t^2 - 12t + 9$ ความเร่ง $a(t) = v^\\prime(t) = 6t - 12 = 0 \\Rightarrow t = 2$"
+      },
+      {
+        "text": "t = 1, 3",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือเวลาที่อนุภาคหยุดนิ่ง ($v(t)=0$) ไม่ใช่ความเร่งเป็นศูนย์"
+      },
+      {
+        "text": "t = 0",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ตำแหน่งเริ่มต้น แต่อนุภาคมีความเร่งตอนเริ่มต้น"
+      },
+      {
+        "text": "t = -2",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ย้ายข้างสมการผิดเครื่องหมาย"
+      }
+    ]
+  },
+  {
+    "question_number": 59,
+    "topic": "Fundamental Theorem of Calculus (Area)",
+    "question": "พื้นที่ของบริเวณที่แรเงาใต้กราฟ $y = \\frac{1}{x}$ บนช่วง $[1, e]$ มีค่าเท่าใด",
+    "choices": [
+      {
+        "text": "1",
+        "is_correct": true,
+        "explanation": "$\\int_1^e \\frac{1}{x} dx = [\\ln |x|]_1^e = \\ln(e) - \\ln(1) = 1 - 0 = 1$"
+      },
+      {
+        "text": "e",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เดาค่าตามขอบเขตอินทิเกรต"
+      },
+      {
+        "text": "0",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดว่า $\\ln(1) = 1$ แล้วลบกันได้ 0"
+      },
+      {
+        "text": "\\ln(e-1)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาขอบบนมาลบขอบล่างก่อนแล้วค่อยใส่ ln ผิดหลักแคลคูลัส"
+      }
+    ]
+  },
+  {
+    "question_number": 60,
+    "topic": "Advanced Integration (Partial Fractions)",
+    "question": "เมื่อกระจายเศษส่วนย่อย $\\frac{1}{x^2 - 1}$ จะได้ค่าคงที่บนเศษเท่าใดบ้าง",
+    "choices": [
+      {
+        "text": "\\frac{1}{2(x-1)} - \\frac{1}{2(x+1)}",
+        "is_correct": true,
+        "explanation": "แยกตัวประกอบเป็น $\\frac{A}{x-1} + \\frac{B}{x+1} = \\frac{1}{(x-1)(x+1)}$ เทียบสัมประสิทธิ์ $A(x+1)+B(x-1)=1$ ให้ $x=1$ ได้ $2A=1 \\Rightarrow A=1/2$ ให้ $x=-1$ ได้ $-2B=1 \\Rightarrow B=-1/2$"
+      },
+      {
+        "text": "\\frac{1}{x-1} - \\frac{1}{x+1}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมส่วน 2 (ถ้าไขว้คืนจะได้เศษเป็น 2 ไม่ใช่ 1)"
+      },
+      {
+        "text": "\\frac{1}{x-1} + \\frac{1}{x+1}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดเครื่องหมายผิด ถ้าบวกกันจะได้พจน์ที่มี x ด้านบน"
+      },
+      {
+        "text": "\\frac{1}{2(x-1)} + \\frac{1}{2(x+1)}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ได้สัมประสิทธิ์ถูกแต่เครื่องหมายของ B ผิดพลาด"
+      }
+    ]
+  },
+  [
+  {
+    "question_number": 1,
+    "topic": "Integrals Involving Trig Functions",
+    "question": "ในการหาค่าอินทิกรัล $\\int \\cos^5(2t)\\sin^2(2t)dt$ ควรใช้เทคนิคใดเป็นขั้นตอนแรก[cite: 31]",
+    "choices": [
+      {
+        "text": "แยก $\\cos(2t)$ ออกมาหนึ่งตัว และเปลี่ยน $\\cos^4(2t)$ เป็น $(1-\\sin^2(2t))^2$",
+        "is_correct": true,
+        "explanation": "เนื่องจากกำลังของ cos เป็นเลขคี่ (5) เราสามารถแยก cos ออกมาหนึ่งตัวเพื่อใช้เป็น $du$ และเปลี่ยน cos ที่เหลือให้เป็น sin โดยใช้เอกลักษณ์ $\\cos^2\\theta = 1-\\sin^2\\theta$"
+      },
+      {
+        "text": "แยก $\\sin(2t)$ ออกมาหนึ่งตัว และเปลี่ยน $\\sin(2t)$ ที่เหลือเป็น $\\sqrt{1-\\cos^2(2t)}$",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: กำลังของ sin เป็นเลขคู่ การแยก sin ออกมาจะทำให้ติดรากที่สองและอินทิเกรตยากขึ้น"
+      },
+      {
+        "text": "ใช้สูตรมุมครึ่ง (Half-angle formulas) เปลี่ยนทั้ง sin และ cos",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สูตรมุมครึ่งมักใช้เมื่อกำลังของทั้ง sin และ cos เป็นเลขคู่เท่านั้น"
+      },
+      {
+        "text": "กำหนดให้ $u = \\cos(2t)$ ทันที",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ถ้าให้ $u = \\cos(2t)$ แล้ว $du$ จะต้องมี $\\sin(2t)dt$ ซึ่งกำลังของ sin เป็น 2 จะเหลือ sin อีก 1 ตัวที่เปลี่ยนเป็น u ได้ยาก"
+      }
+    ]
+  },
+  {
+    "question_number": 2,
+    "topic": "Integrals Involving Trig Functions",
+    "question": "จงหาค่าของ $\\int \\sin^2(7x)dx$[cite: 31]",
+    "choices": [
+      {
+        "text": "\\frac{x}{2} - \\frac{\\sin(14x)}{28} + C",
+        "is_correct": true,
+        "explanation": "ใช้เอกลักษณ์มุมครึ่ง $\\sin^2(7x) = \\frac{1-\\cos(14x)}{2}$ อินทิเกรตจะได้ $\\frac{1}{2}x - \\frac{1}{2}\\frac{\\sin(14x)}{14} + C = \\frac{x}{2} - \\frac{\\sin(14x)}{28} + C$"
+      },
+      {
+        "text": "\\frac{\\sin^3(7x)}{21} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: อินทิเกรตแบบพหุนามดื้อๆ"
+      },
+      {
+        "text": "\\frac{x}{2} + \\frac{\\sin(14x)}{28} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จำเครื่องหมายในเอกลักษณ์ผิดเป็นบวก (นั่นคือสูตรของ cos^2)"
+      },
+      {
+        "text": "-\\frac{\\cos(14x)}{14} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: อินทิเกรต sin^2 แล้วคิดว่าจะได้ cos โดยลืมใช้สูตรมุมครึ่ง"
+      }
+    ]
+  },
+  {
+    "question_number": 3,
+    "topic": "Integrals Involving Trig Functions",
+    "question": "ในการหาค่า $\\int \\sec^8(\\frac{1}{2}t)\\tan^5(\\frac{1}{2}t)dt$ หากต้องการกำหนด $u = \\sec(\\frac{1}{2}t)$ ต้องแยกพจน์ใดออกมาเพื่อเป็น $du$[cite: 31]",
+    "choices": [
+      {
+        "text": "\\sec(\\frac{1}{2}t)\\tan(\\frac{1}{2}t)dt",
+        "is_correct": true,
+        "explanation": "เพราะอนุพันธ์ของ $\\sec\\theta$ คือ $\\sec\\theta\\tan\\theta$ จึงต้องแยก $\\sec\\theta\\tan\\theta$ ออกมาคู่กับ $dt$ เพื่อสร้าง $du$"
+      },
+      {
+        "text": "\\sec^2(\\frac{1}{2}t)dt",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: พจน์นี้ใช้เป็น $du$ ในกรณีที่กำหนด $u = \\tan(\\frac{1}{2}t)$"
+      },
+      {
+        "text": "\\tan(\\frac{1}{2}t)dt",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: อนุพันธ์ของ sec ไม่ใช่แค่ tan อย่างเดียว"
+      },
+      {
+        "text": "\\sec^7(\\frac{1}{2}t)dt",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: แยกผิดหลักการของการเปลี่ยนตัวแปร"
+      }
+    ]
+  },
+  {
+    "question_number": 4,
+    "topic": "Integrals Involving Trig Functions",
+    "question": "จงหาค่าของ $\\int \\sec^2(9z)\\tan^3(9z)dz$[cite: 31]",
+    "choices": [
+      {
+        "text": "\\frac{\\tan^4(9z)}{36} + C",
+        "is_correct": true,
+        "explanation": "กำหนด $u = \\tan(9z)$ จะได้ $du = 9\\sec^2(9z)dz \\Rightarrow \\frac{du}{9} = \\sec^2(9z)dz$ อินทิกรัลจะกลายเป็น $\\frac{1}{9}\\int u^3 du = \\frac{1}{9}\\frac{u^4}{4} + C = \\frac{\\tan^4(9z)}{36} + C$"
+      },
+      {
+        "text": "\\frac{\\tan^4(9z)}{4} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมหารด้วย 9 จากกฎลูกโซ่ (Chain rule) ย้อนกลับ"
+      },
+      {
+        "text": "\\frac{\\sec^3(9z)}{27} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: อินทิเกรต sec ผสมกับ tan มั่ว"
+      },
+      {
+        "text": "\\frac{\\tan^3(9z)}{27} + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ได้ 9 มาหาร แต่ลืมเพิ่มกำลังของ u"
+      }
+    ]
+  },
+  {
+    "question_number": 5,
+    "topic": "Integrals Involving Trig Functions",
+    "question": "ในการหาค่า $\\int \\cot^2(3x)\\csc^6(3x)dx$ ควรกำหนด $u$ เป็นอะไรจึงจะอินทิเกรตได้ง่ายที่สุด[cite: 31]",
+    "choices": [
+      {
+        "text": "u = \\cot(3x)",
+        "is_correct": true,
+        "explanation": "เนื่องจากกำลังของ csc เป็นเลขคู่ เราสามารถแยก $\\csc^2(3x)$ ออกมาเป็น $du$ ได้ (เพราะ $d(\\cot\\theta) = -\\csc^2\\theta d\\theta$) แล้วเปลี่ยน csc ที่เหลือเป็น cot ได้โดยเอกลักษณ์"
+      },
+      {
+        "text": "u = \\csc(3x)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ถ้าให้ $u = \\csc(3x)$ จะต้องมี $\\csc(3x)\\cot(3x)$ เป็น $du$ ซึ่งกำลังของ cot เป็นเลขคู่ (2) จะทำให้เปลี่ยน cot ที่เหลือยาก"
+      },
+      {
+        "text": "u = 3x",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เปลี่ยนแค่มุม ไม่ได้ช่วยให้แก้พจน์ตรีโกณมิติกำลังสูงได้"
+      },
+      {
+        "text": "u = \\cos(3x)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: การเปลี่ยนเป็น sin, cos ในข้อนี้จะทำให้สมการซับซ้อนกว่าเดิม"
+      }
+    ]
+  },
+  {
+    "question_number": 6,
+    "topic": "Integrals Involving Trig Functions",
+    "question": "จงหาค่าของ $\\int \\cot(x)dx$[cite: 31]",
+    "choices": [
+      {
+        "text": "\\ln|\\sin(x)| + C",
+        "is_correct": true,
+        "explanation": "$\\cot(x) = \\frac{\\cos(x)}{\\sin(x)}$ กำหนด $u = \\sin(x)$ จะได้ $du = \\cos(x)dx$ ได้ $\\int \\frac{1}{u} du = \\ln|u| + C = \\ln|\\sin(x)| + C$"
+      },
+      {
+        "text": "-\\ln|\\sin(x)| + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จำเครื่องหมายสลับกับการอินทิเกรต $\\tan(x)$ ที่ได้ $-\\ln|\\cos(x)|$"
+      },
+      {
+        "text": "\\ln|\\cos(x)| + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จำสูตรของ $\\tan(x)$ มาตอบ"
+      },
+      {
+        "text": "-\\csc^2(x) + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คืออนุพันธ์ (ดิฟ) ของ $\\cot(x)$ ไม่ใช่อินทิกรัล"
+      }
+    ]
+  },
+  {
+    "question_number": 7,
+    "topic": "Integrals Involving Trig Functions",
+    "question": "จงหาค่าของ $\\int \\csc(x)dx$[cite: 32]",
+    "choices": [
+      {
+        "text": "\\ln|\\csc(x) - \\cot(x)| + C",
+        "is_correct": true,
+        "explanation": "เป็นสูตรมาตรฐานของการอินทิเกรต $\\csc(x)$ (หรือเขียนอีกรูปคือ $-\\ln|\\csc(x) + \\cot(x)| + C$)"
+      },
+      {
+        "text": "\\ln|\\csc(x) + \\cot(x)| + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เครื่องหมายตรงกลางผิด (สูตรที่เป็นบวกคือของ $\\int \\sec(x)dx = \\ln|\\sec(x) + \\tan(x)|$)"
+      },
+      {
+        "text": "-\\csc(x)\\cot(x) + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คืออนุพันธ์ (ดิฟ) ของ $\\csc(x)$"
+      },
+      {
+        "text": "\\ln|\\sec(x) + \\tan(x)| + C",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือสูตรการอินทิเกรต $\\sec(x)$"
+      }
+    ]
+  },
+  {
+    "question_number": 8,
+    "topic": "Integrals Involving Trig Functions",
+    "question": "เทคนิคที่ใช้ในการหาค่า $\\int \\cos(2x)\\cos(24x)dx$ คืออะไร[cite: 32]",
+    "choices": [
+      {
+        "text": "ใช้เอกลักษณ์ผลคูณเป็นผลบวก: $\\cos A \\cos B = \\frac{1}{2}[\\cos(A-B) + \\cos(A+B)]$",
+        "is_correct": true,
+        "explanation": "เมื่อมุมของฟังก์ชันตรีโกณมิติไม่เท่ากัน (2x และ 24x) ต้องใช้เอกลักษณ์แปลงผลคูณให้เป็นผลบวกหรือผลต่างก่อนจึงจะอินทิเกรตได้"
+      },
+      {
+        "text": "Integration by parts",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: การแยกส่วน (by parts) กับฟังก์ชันตรีโกณมิติล้วนจะวนลูปและซับซ้อนโดยไม่จำเป็น"
+      },
+      {
+        "text": "แทนค่า $u = \\cos(2x)$",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: มุมไม่เท่ากัน ($2x \\neq 24x$) ไม่สามารถเปลี่ยนตัวแปรตรงๆ ได้"
+      },
+      {
+        "text": "ใช้เอกลักษณ์มุมครึ่ง (Half-angle formula)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: มุมครึ่งใช้ลดกำลังของ $\\sin^2$ หรือ $\\cos^2$ ไม่ใช่สำหรับผลคูณต่างมุม"
+      }
+    ]
+  },
+  {
+    "question_number": 9,
+    "topic": "Integrals Involving Trig Functions",
+    "question": "ในการหาค่า $\\int \\frac{\\sec^6(\\frac{1}{2}z)}{\\tan^8(\\frac{1}{2}z)}dz$ ควรกำหนด $u$ เป็นอะไร[cite: 32]",
+    "choices": [
+      {
+        "text": "u = \\tan(\\frac{1}{2}z)",
+        "is_correct": true,
+        "explanation": "เพราะกำลังของ sec เป็นเลขคู่ (6) เราสามารถแยก $\\sec^2(\\frac{1}{2}z)$ ไว้คู่กับ $dz$ เป็น $du$ และแปลง $\\sec^4$ ที่เหลือให้เป็นฟังก์ชันของ tan ได้"
+      },
+      {
+        "text": "u = \\sec(\\frac{1}{2}z)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: การแยก $\\sec\\tan$ จะทำให้พจน์ของ $\\tan$ ที่อยู่เป็นตัวส่วนมีความซับซ้อนมากยิ่งขึ้น"
+      },
+      {
+        "text": "u = \\frac{1}{2}z",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เปลี่ยนแค่มุมแต่ไม่ได้ช่วยแก้ปัญหาเลขยกกำลังที่ตัวส่วน"
+      },
+      {
+        "text": "u = \\sin(\\frac{1}{2}z)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ต้องเสียเวลาแปลง sec และ tan ให้อยู่ในรูป sin, cos ซึ่งอาจจะซับซ้อนกว่าเดิม"
+      }
+    ]
+  },
+  {
+    "question_number": 10,
+    "topic": "Integrals Involving Trig Functions",
+    "question": "ในการอินทิเกรต $\\int \\frac{1+9\\cos^5(8w)}{\\sin^2(8w)}dw$ ควรจัดรูปสมการอย่างไรในขั้นแรก[cite: 32]",
+    "choices": [
+      {
+        "text": "แยกเป็นเศษส่วนสองพจน์: $\\int (\\csc^2(8w) + 9\\frac{\\cos^5(8w)}{\\sin^2(8w)})dw$",
+        "is_correct": true,
+        "explanation": "การแยกเศษส่วนทำให้พจน์แรก $\\csc^2(8w)$ สามารถอินทิเกรตได้ทันที (ได้ $-\\cot(8w)/8$) ส่วนพจน์หลังก็สามารถใช้การแทนค่า $u = \\sin(8w)$ ได้ต่อไป"
+      },
+      {
+        "text": "แทนค่า $u = \\sin(8w)$ ทันที",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: พจน์ 1 ด้านบนจะไม่มี $du$ ($u=\\sin$ ต้องการ $\\cos$ เป็น $du$) ทำให้พจน์แรกติดขัด"
+      },
+      {
+        "text": "เปลี่ยน $\\sin^2(8w)$ เป็น $1-\\cos^2(8w)$ แล้วหารยาว",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ทำให้ส่วนกลายเป็นสองพจน์ จะแยกเศษส่วนไม่ได้และยากกว่าเดิม"
+      },
+      {
+        "text": "ให้ $u = 8w$ แล้วใช้ Integration by parts",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ฟังก์ชันตรรกยะของตรีโกณมิติไม่เหมาะกับการใช้ by parts"
+      }
+    ]
+  },
+  {
+    "question_number": 11,
+    "topic": "Trig Substitutions",
+    "question": "จงใช้การแทนค่าด้วยฟังก์ชันตรีโกณมิติ (Trig Substitution) เพื่อกำจัดรากของ $\\sqrt{64t^2+1}$ โดยควรกำหนด $t$ เท่ากับเท่าใด[cite: 33]",
+    "choices": [
+      {
+        "text": "t = \\frac{1}{8}\\tan\\theta",
+        "is_correct": true,
+        "explanation": "ฟอร์ม $\\sqrt{u^2 + a^2}$ ต้องแทน $u = a\\tan\\theta$ ในที่นี้ $u^2 = 64t^2 \\Rightarrow u = 8t$ และ $a^2 = 1 \\Rightarrow a = 1$ จะได้ $8t = 1\\tan\\theta \\Rightarrow t = \\frac{1}{8}\\tan\\theta$"
+      },
+      {
+        "text": "t = 8\\tan\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมย้ายเลข 8 ไปหาร"
+      },
+      {
+        "text": "t = \\frac{1}{8}\\sin\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ฟอร์มที่เป็นบวก ($+$) ตรงกลางต้องใช้ $\\tan$ ไม่ใช่ $\\sin$"
+      },
+      {
+        "text": "t = 64\\sec\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใช้ $\\sec$ ผิดฟอร์ม และไม่ได้ถอดรากที่สองของสัมประสิทธิ์"
+      }
+    ]
+  },
+  {
+    "question_number": 12,
+    "topic": "Trig Substitutions",
+    "question": "จงใช้การแทนค่าด้วยฟังก์ชันตรีโกณมิติเพื่อกำจัดรากของ $\\sqrt{4z^2-49}$ โดยควรกำหนด $z$ เท่ากับเท่าใด[cite: 33]",
+    "choices": [
+      {
+        "text": "z = \\frac{7}{2}\\sec\\theta",
+        "is_correct": true,
+        "explanation": "ฟอร์ม $\\sqrt{u^2 - a^2}$ ต้องแทน $u = a\\sec\\theta$ ในที่นี้ $u^2 = 4z^2 \\Rightarrow u = 2z$ และ $a^2 = 49 \\Rightarrow a = 7$ จะได้ $2z = 7\\sec\\theta \\Rightarrow z = \\frac{7}{2}\\sec\\theta$"
+      },
+      {
+        "text": "z = \\frac{2}{7}\\sec\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สลับเศษส่วนระหว่าง a กับสัมประสิทธิ์ของ z"
+      },
+      {
+        "text": "z = \\frac{7}{2}\\sin\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใช้ฟังก์ชัน $\\sin$ ซึ่งเหมาะกับฟอร์ม $a^2 - u^2$ (ตัวเลขตั้งต้น)"
+      },
+      {
+        "text": "z = 7\\sec\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมถอดรากของ 4 ที่อยู่หน้า $z^2$"
+      }
+    ]
+  },
+  {
+    "question_number": 13,
+    "topic": "Trig Substitutions",
+    "question": "การแทนค่าตรีโกณมิติที่เหมาะสมสำหรับกำจัดรากในนิพจน์ $\\sqrt{7-w^2}$ คืออะไร[cite: 33]",
+    "choices": [
+      {
+        "text": "w = \\sqrt{7}\\sin\\theta",
+        "is_correct": true,
+        "explanation": "ฟอร์ม $\\sqrt{a^2 - u^2}$ ต้องแทน $u = a\\sin\\theta$ ในที่นี้ $a^2 = 7 \\Rightarrow a = \\sqrt{7}$ และ $u = w$ จึงได้ $w = \\sqrt{7}\\sin\\theta$"
+      },
+      {
+        "text": "w = 7\\sin\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมใส่รากที่สองให้กับ 7"
+      },
+      {
+        "text": "w = \\sqrt{7}\\tan\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: $\\tan$ ใช้กับฟอร์มบวก ($a^2 + u^2$)"
+      },
+      {
+        "text": "w = \\sqrt{7}\\sec\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: $\\sec$ ใช้กับฟอร์ม $u^2 - a^2$ (ตัวแปรตั้งต้น)"
+      }
+    ]
+  },
+  {
+    "question_number": 14,
+    "topic": "Trig Substitutions",
+    "question": "สำหรับนิพจน์ $(16-81x^2)^{\\frac{7}{2}}$ ควรกำหนด $x$ เป็นอะไรเพื่อเปลี่ยนรูปด้วยฟังก์ชันตรีโกณมิติ[cite: 33]",
+    "choices": [
+      {
+        "text": "x = \\frac{4}{9}\\sin\\theta",
+        "is_correct": true,
+        "explanation": "นิพจน์มีฟอร์มแบบ $\\sqrt{a^2 - u^2}$ (เพราะยกกำลัง 7/2 คือรากที่สองยกกำลัง 7) โดย $a^2 = 16 \\Rightarrow a = 4$ และ $u^2 = 81x^2 \\Rightarrow u = 9x$ ดังนั้น $9x = 4\\sin\\theta \\Rightarrow x = \\frac{4}{9}\\sin\\theta$"
+      },
+      {
+        "text": "x = \\frac{9}{4}\\sin\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สลับเศษส่วนระหว่าง a กับสัมประสิทธิ์ของตัวแปร"
+      },
+      {
+        "text": "x = 4\\sin\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: มองข้ามเลข 81 ที่อยู่หน้า $x^2$"
+      },
+      {
+        "text": "x = \\frac{4}{9}\\tan\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใช้ $\\tan$ กับเครื่องหมายลบผิดฟอร์ม"
+      }
+    ]
+  },
+  {
+    "question_number": 15,
+    "topic": "Trig Substitutions",
+    "question": "การแทนค่าตรีโกณมิติที่เหมาะสมสำหรับ $\\sqrt{9-16(3x-1)^2}$ คือข้อใด[cite: 33]",
+    "choices": [
+      {
+        "text": "3x-1 = \\frac{3}{4}\\sin\\theta",
+        "is_correct": true,
+        "explanation": "ฟอร์ม $\\sqrt{a^2 - u^2}$ โดย $a^2=9 \\Rightarrow a=3$ และ $u^2=16(3x-1)^2 \\Rightarrow u=4(3x-1)$ จัดรูป $4(3x-1) = 3\\sin\\theta \\Rightarrow 3x-1 = \\frac{3}{4}\\sin\\theta$"
+      },
+      {
+        "text": "3x-1 = \\frac{4}{3}\\sin\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สลับเอาค่า a ไว้เป็นตัวส่วน"
+      },
+      {
+        "text": "x = \\frac{3}{4}\\sin\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมพจน์ $(3x-1)$ เอาแค่ x มาแทนค่าเลย"
+      },
+      {
+        "text": "3x-1 = \\frac{3}{4}\\sec\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใช้ $\\sec$ ผิดฟอร์ม"
+      }
+    ]
+  },
+  {
+    "question_number": 16,
+    "topic": "Trig Substitutions",
+    "question": "ในการหาค่า $\\sqrt{4x^2-24x+43}$ ต้องใช้วิธีกำลังสองสมบูรณ์ก่อน ข้อใดคือผลลัพธ์จากการจัดรูปที่ถูกต้อง[cite: 33]",
+    "choices": [
+      {
+        "text": "\\sqrt{4(x-3)^2 + 7}",
+        "is_correct": true,
+        "explanation": "ดึง 4 ออกจากสองพจน์แรก: $4(x^2 - 6x) + 43$ ทำกำลังสองสมบูรณ์: $4(x^2 - 6x + 9 - 9) + 43 = 4(x-3)^2 - 36 + 43 = 4(x-3)^2 + 7$"
+      },
+      {
+        "text": "\\sqrt{(2x-6)^2 + 43}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จัดรูปกำลังสองสมบูรณ์แต่ไม่ได้หักลบค่าคงที่ที่บวกเพิ่มเข้าไป"
+      },
+      {
+        "text": "\\sqrt{4(x-6)^2 + 7}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ตอนทำกำลังสองสมบูรณ์ลืมหารครึ่งสัมประสิทธิ์ของ x (เอา 6 มาใช้เลย)"
+      },
+      {
+        "text": "\\sqrt{4(x-3)^2 - 7}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คำนวณค่าคงที่ตอนท้ายผิดเครื่องหมาย"
+      }
+    ]
+  },
+  {
+    "question_number": 17,
+    "topic": "Trig Substitutions",
+    "question": "หลังจากกำหนด $x = 4\\sin\\theta$ เพื่อประเมินอินทิกรัล $\\int 3x^5\\sqrt{16-x^2}dx$ พจน์ $\\sqrt{16-x^2}$ จะเปลี่ยนรูปเป็นอะไร (สมมติ $\\cos\\theta > 0$)[cite: 33]",
+    "choices": [
+      {
+        "text": "4\\cos\\theta",
+        "is_correct": true,
+        "explanation": "แทน $x = 4\\sin\\theta$ ลงในราก: $\\sqrt{16 - (4\\sin\\theta)^2} = \\sqrt{16 - 16\\sin^2\\theta} = \\sqrt{16(1-\\sin^2\\theta)} = \\sqrt{16\\cos^2\\theta} = 4\\cos\\theta$"
+      },
+      {
+        "text": "16\\cos\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมถอดรากที่สองของ 16"
+      },
+      {
+        "text": "4\\cos^2\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ถอดรากที่สองของ 16 แล้ว แต่ไม่ได้ถอดรากของ $\\cos^2\\theta$"
+      },
+      {
+        "text": "4\\sin\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เปลี่ยนฟอร์มผิด ได้ค่าเท่าเดิมที่กำหนด"
+      }
+    ]
+  },
+  {
+    "question_number": 18,
+    "topic": "Trig Substitutions",
+    "question": "ในการประเมิน $\\int_{0}^{\\frac{1}{4}}\\frac{w^3}{\\sqrt{1-9w^2}}dw$ เมื่อเปลี่ยนตัวแปรด้วยวิธี Trig Substitution แล้ว ขอบเขตบนของการอินทิเกรต (Upper bound) จะเปลี่ยนจาก $\\frac{1}{4}$ เป็นมุมใด[cite: 33]",
+    "choices": [
+      {
+        "text": "\\arcsin(\\frac{3}{4})",
+        "is_correct": true,
+        "explanation": "การแทนค่าคือ $3w = 1\\sin\\theta \\Rightarrow w = \\frac{1}{3}\\sin\\theta$ เมื่อขอบเขตเดิม $w = \\frac{1}{4}$ จะได้ $\\frac{1}{4} = \\frac{1}{3}\\sin\\theta \\Rightarrow \\sin\\theta = \\frac{3}{4}$ ดังนั้น $\\theta = \\arcsin(3/4)$"
+      },
+      {
+        "text": "\\arcsin(\\frac{1}{4})",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: แทนขอบเขต w ลงไปตรงๆ โดยลืมคูณสัมประสิทธิ์ 3"
+      },
+      {
+        "text": "\\arcsin(\\frac{1}{12})",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เอาสัมประสิทธิ์ 3 ไปหารแทนที่จะนำไปคูณ"
+      },
+      {
+        "text": "\\frac{\\pi}{4}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เดาค่ามุมมาตรฐานที่พบบ่อย"
+      }
+    ]
+  },
+  {
+    "question_number": 19,
+    "topic": "Trig Substitutions",
+    "question": "จงระบุการแทนค่า $dx$ (differential) ที่ถูกต้อง หากใช้การแทนค่า $x = \\sqrt{15}\\sec\\theta$ สำหรับอินทิกรัล $\\int \\frac{\\sqrt{x^2-15}}{x^3}dx$[cite: 34]",
+    "choices": [
+      {
+        "text": "dx = \\sqrt{15}\\sec\\theta\\tan\\theta d\\theta",
+        "is_correct": true,
+        "explanation": "อนุพันธ์ของ $\\sec\\theta$ คือ $\\sec\\theta\\tan\\theta$ ดังนั้นเมื่อ $x = \\sqrt{15}\\sec\\theta$ จะได้ $dx = \\sqrt{15}\\sec\\theta\\tan\\theta d\\theta$"
+      },
+      {
+        "text": "dx = \\sqrt{15}\\tan^2\\theta d\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จำสูตรอนุพันธ์ของ $\\sec\\theta$ ผิด"
+      },
+      {
+        "text": "dx = 15\\sec\\theta\\tan\\theta d\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใช้ 15 ดื้อๆ โดยลืมว่าสัมประสิทธิ์คือ $\\sqrt{15}$"
+      },
+      {
+        "text": "dx = \\sqrt{15}\\sec^2\\theta d\\theta",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คืออนุพันธ์ของ $\\tan\\theta$ ไม่ใช่ $\\sec\\theta$"
+      }
+    ]
+  },
+  {
+    "question_number": 20,
+    "topic": "Trig Substitutions",
+    "question": "ในการอินทิเกรต $\\int \\frac{e^{12t}}{\\sqrt{4e^{6t}-1}}dt$ หากต้องการใช้ Trig Substitution ควรจัดรูปและกำหนด $u$ เป็นอะไรในขั้นต้น[cite: 34]",
+    "choices": [
+      {
+        "text": "u = e^{3t}",
+        "is_correct": true,
+        "explanation": "ตัวส่วนคือ $\\sqrt{4(e^{3t})^2 - 1}$ เราสามารถให้ $u = e^{3t}$ ก่อน เพื่อเปลี่ยนฟอร์มให้กลายเป็น $\\sqrt{4u^2 - 1}$ แล้วจึงใช้ Trig substitution ขั้นต่อไป (เช่น $2u = \\sec\\theta$)"
+      },
+      {
+        "text": "u = e^{6t}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ถ้านำกำลังมาทั้งดุ้น เมื่อนำไปเข้าฟอร์ม Trig Sub จะไม่เป็นกำลังสอง"
+      },
+      {
+        "text": "u = 4e^{6t}-1",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นี่คือการเปลี่ยนตัวแปรแบบ U-Substitution ธรรมดา ซึ่งในข้อนี้จะติดพจน์เศษด้านบน"
+      },
+      {
+        "text": "u = e^{12t}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นำตัวเศษมาเป็น $u$ ซึ่งผิดหลักการแก้รากที่ตัวส่วน"
+      }
+    ]
+  },
+  {
+    "question_number": 21,
+    "topic": "Partial Fractions",
+    "question": "รูปแบบการแยกเศษส่วนย่อย (Partial Fraction Decomposition) ของ $\\int \\frac{9}{z^2-12z}dz$ ที่ถูกต้องคือข้อใด[cite: 35]",
+    "choices": [
+      {
+        "text": "\\frac{A}{z} + \\frac{B}{z-12}",
+        "is_correct": true,
+        "explanation": "แยกตัวประกอบของส่วน $z^2-12z = z(z-12)$ ซึ่งเป็น Linear factors ที่ไม่ซ้ำกัน จึงแยกได้เป็น $A/z + B/(z-12)$"
+      },
+      {
+        "text": "\\frac{A}{z} + \\frac{B}{z^2-12z}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ไม่ได้แยกตัวประกอบให้เสร็จสิ้น"
+      },
+      {
+        "text": "\\frac{Az+B}{z^2-12z}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: มองว่าเป็น Irreducible quadratic ซึ่งความจริงแยกตัวประกอบต่อได้"
+      },
+      {
+        "text": "\\frac{A}{z-12} + \\frac{B}{(z-12)^2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: รูปแบบนี้สำหรับพจน์เชิงเส้นที่ซ้ำกัน (Repeated linear factor) ซึ่งข้อนี้ไม่ใช่"
+      }
+    ]
+  },
+  {
+    "question_number": 22,
+    "topic": "Partial Fractions",
+    "question": "รูปแบบการแยกเศษส่วนย่อยของ $\\int \\frac{7x}{x^2+14x+40}dx$ คือข้อใด[cite: 35]",
+    "choices": [
+      {
+        "text": "\\frac{A}{x+4} + \\frac{B}{x+10}",
+        "is_correct": true,
+        "explanation": "แยกตัวประกอบส่วน $x^2+14x+40 = (x+4)(x+10)$ จะได้การแยกเศษส่วนย่อยเป็น $\\frac{A}{x+4} + \\frac{B}{x+10}$"
+      },
+      {
+        "text": "\\frac{A}{x+4} + \\frac{Bx+C}{x+10}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใส่ $Bx+C$ ให้กับพจน์เชิงเส้น (ใช้สำหรับ Quadratic factor ที่แยกไม่ได้เท่านั้น)"
+      },
+      {
+        "text": "\\frac{A}{x-4} + \\frac{B}{x-10}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: แยกตัวประกอบผิดเครื่องหมาย"
+      },
+      {
+        "text": "\\frac{Ax+B}{x^2+14x+40}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ไม่ได้ทำการแยกตัวประกอบใดๆ เลย"
+      }
+    ]
+  },
+  {
+    "question_number": 23,
+    "topic": "Partial Fractions",
+    "question": "รูปแบบการแยกเศษส่วนย่อยของ $\\int \\frac{9-w^2}{(w+1)(3w-5)(w+4)}dw$ คือข้อใด[cite: 35]",
+    "choices": [
+      {
+        "text": "\\frac{A}{w+1} + \\frac{B}{3w-5} + \\frac{C}{w+4}",
+        "is_correct": true,
+        "explanation": "ตัวส่วนประกอบด้วย Linear factors ที่ไม่ซ้ำกัน 3 วงเล็บ จึงแยกออกเป็น 3 พจน์ที่มีค่าคงที่ A, B, C อยู่ด้านบน"
+      },
+      {
+        "text": "\\frac{Aw^2+Bw+C}{(w+1)(3w-5)(w+4)}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ไม่ได้แยกเศษส่วนย่อย เป็นแค่การเขียนรวบพจน์"
+      },
+      {
+        "text": "\\frac{A}{w+1} + \\frac{Bw+C}{(3w-5)(w+4)}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: แยกวงเล็บแรกออก แต่นำ 2 วงเล็บหลังมาคูณรวมกันแบบผิดวิธี"
+      },
+      {
+        "text": "\\frac{A}{w+1} + \\frac{Bw}{(3w-5)} + \\frac{C}{w+4}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใส่ตัวแปร $w$ ไว้ข้างบนกับ B ซึ่งไม่จำเป็นสำหรับ Linear factor"
+      }
+    ]
+  },
+  {
+    "question_number": 24,
+    "topic": "Partial Fractions",
+    "question": "รูปแบบการแยกเศษส่วนย่อยของ $\\int \\frac{4x+10}{(x-2)(x-1)^2}dx$ คือข้อใด[cite: 35]",
+    "choices": [
+      {
+        "text": "\\frac{A}{x-2} + \\frac{B}{x-1} + \\frac{C}{(x-1)^2}",
+        "is_correct": true,
+        "explanation": "มี $(x-1)^2$ ซึ่งเป็น Repeated linear factor ต้องเขียนแยกกระจายกำลังตั้งแต่กำลัง 1 ถึงกำลังสูงสุด (ในที่นี้คือกำลัง 2)"
+      },
+      {
+        "text": "\\frac{A}{x-2} + \\frac{B}{(x-1)^2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมกระจายกำลัง 1 ของ $(x-1)$"
+      },
+      {
+        "text": "\\frac{A}{x-2} + \\frac{Bx+C}{(x-1)^2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นำรูปแบบของ Quadratic factor (ที่มี $Bx+C$) มาใช้กับ Repeated linear factor"
+      },
+      {
+        "text": "\\frac{A}{x-2} + \\frac{B}{x-1}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมพจน์กำลังสองของวงเล็บซ้ำไปเลย"
+      }
+    ]
+  },
+  {
+    "question_number": 25,
+    "topic": "Partial Fractions",
+    "question": "รูปแบบการแยกเศษส่วนย่อยของ $\\int \\frac{10z+2}{(z+1)^2(z-3)^2}dz$ จะมีกี่พจน์ (กี่ค่าคงที่)[cite: 35]",
+    "choices": [
+      {
+        "text": "4 พจน์ (A, B, C, D)",
+        "is_correct": true,
+        "explanation": "เนื่องจากมี Repeated linear factor 2 ตัว คือ $(z+1)^2$ และ $(z-3)^2$ เมื่อกระจายจะได้ $\\frac{A}{z+1} + \\frac{B}{(z+1)^2} + \\frac{C}{z-3} + \\frac{D}{(z-3)^2}$ รวม 4 พจน์"
+      },
+      {
+        "text": "2 พจน์ (A, B)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คิดว่ามีแค่ 2 วงเล็บเลยแยกแค่ 2 พจน์ (ละเลยเลขยกกำลัง)"
+      },
+      {
+        "text": "3 พจน์ (A, B, C)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: นับจำนวนพจน์ผิดพลาด"
+      },
+      {
+        "text": "5 พจน์ (A, B, C, D, E)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เดาเผื่อจำนวนพจน์เกินความเป็นจริง"
+      }
+    ]
+  },
+  {
+    "question_number": 26,
+    "topic": "Partial Fractions",
+    "question": "รูปแบบการแยกเศษส่วนย่อยของ $\\int \\frac{8w+w^2}{(w-7)(w^2+16)}dw$ คือข้อใด[cite: 35]",
+    "choices": [
+      {
+        "text": "\\frac{A}{w-7} + \\frac{Bw+C}{w^2+16}",
+        "is_correct": true,
+        "explanation": "ตัวส่วนประกอบด้วย Linear factor $(w-7)$ และ Irreducible quadratic factor $(w^2+16)$ (ซึ่งแยกตัวประกอบไม่ได้) พจน์ของกำลังสองนี้ต้องมีเศษเป็น $Bw+C$"
+      },
+      {
+        "text": "\\frac{A}{w-7} + \\frac{B}{w^2+16}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมว่าเศษของ Irreducible quadratic ต้องเป็นพหุนามดีกรี 1 ($Bw+C$)"
+      },
+      {
+        "text": "\\frac{A}{w-7} + \\frac{B}{w-4} + \\frac{C}{w+4}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: เผลอแยกตัวประกอบ $w^2+16$ (เครื่องหมายบวกแยกไม่ได้ ถ้าเป็นลบถึงจะแยกเป็นผลต่างกำลังสองได้)"
+      },
+      {
+        "text": "\\frac{Aw+B}{w-7} + \\frac{Cw+D}{w^2+16}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใส่เศษดีกรี 1 ให้กับ Linear factor ด้วย ซึ่งไม่ถูกต้อง"
+      }
+    ]
+  },
+  {
+    "question_number": 27,
+    "topic": "Partial Fractions",
+    "question": "ในการแยกเศษส่วนย่อย $\\frac{6y-7}{(2y+1)(4y^2+1)}$ สมการสำหรับนำไปเทียบสัมประสิทธิ์ (ตั้งไขว้) คือสมการใด[cite: 35]",
+    "choices": [
+      {
+        "text": "6y - 7 = A(4y^2+1) + (By+C)(2y+1)",
+        "is_correct": true,
+        "explanation": "รูปเศษส่วนย่อยคือ $\\frac{A}{2y+1} + \\frac{By+C}{4y^2+1}$ เมื่อนำตัวส่วนรวม $(2y+1)(4y^2+1)$ คูณตลอด จะได้สมการตั้งต้นสำหรับเทียบสัมประสิทธิ์ตามข้อ ก."
+      },
+      {
+        "text": "6y - 7 = A(4y^2+1) + B(2y+1)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใช้ B เดี่ยวๆ สำหรับพจน์ Quadratic ที่แยกไม่ได้"
+      },
+      {
+        "text": "6y - 7 = (Ay+B)(4y^2+1) + C(2y+1)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: สลับการให้สัมประสิทธิ์ (ให้พจน์ Linear เป็นตัวแปร 2 ตัวแทน)"
+      },
+      {
+        "text": "6y - 7 = A(2y+1) + (By+C)(4y^2+1)",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: คูณไขว้สลับข้างกัน A ต้องคูณกับส่วนของพจน์หลัง"
+      }
+    ]
+  },
+  {
+    "question_number": 28,
+    "topic": "Partial Fractions",
+    "question": "รูปแบบการแยกเศษส่วนย่อยของ $\\int \\frac{8t^3-5t^2+72t-10}{(t^2+2)(t^2+9)}dt$ คือข้อใด[cite: 35]",
+    "choices": [
+      {
+        "text": "\\frac{At+B}{t^2+2} + \\frac{Ct+D}{t^2+9}",
+        "is_correct": true,
+        "explanation": "ตัวส่วนประกอบด้วย Irreducible quadratic factors 2 วงเล็บที่ไม่ซ้ำกัน จึงต้องแยกเป็น 2 พจน์ โดยแต่ละพจน์ต้องมีตัวเศษเป็นพหุนามดีกรี 1"
+      },
+      {
+        "text": "\\frac{A}{t^2+2} + \\frac{B}{t^2+9}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใช้ตัวเศษเป็นแค่ค่าคงที่ตัวเดียว ซึ่งผิดสำหรับ Quadratic factor"
+      },
+      {
+        "text": "\\frac{At+B}{t^2+2} + \\frac{C}{(t^2+9)^2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: มั่วฟอร์มของ Repeated factor เข้ามาปน"
+      },
+      {
+        "text": "\\frac{At^2+Bt+C}{(t^2+2)(t^2+9)}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ไม่ได้ทำการแยกเศษส่วนย่อยใดๆ"
+      }
+    ]
+  },
+  {
+    "question_number": 29,
+    "topic": "Partial Fractions",
+    "question": "รูปแบบการแยกเศษส่วนย่อยของ $\\int \\frac{x^4+5x^3+20x+16}{x(x^2+4)^2}dx$ คือข้อใด[cite: 35]",
+    "choices": [
+      {
+        "text": "\\frac{A}{x} + \\frac{Bx+C}{x^2+4} + \\frac{Dx+E}{(x^2+4)^2}",
+        "is_correct": true,
+        "explanation": "มี Linear factor คือ $x$ ได้พจน์ $A/x$ และมี Repeated irreducible quadratic factor คือ $(x^2+4)^2$ จึงต้องกระจายตั้งแต่กำลัง 1 ถึงกำลัง 2 โดยแต่ละตัวมีเศษเป็นดีกรี 1 (Bx+C และ Dx+E)"
+      },
+      {
+        "text": "\\frac{A}{x} + \\frac{Bx+C}{(x^2+4)^2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ลืมกระจายพจน์กำลัง 1 ของ $(x^2+4)$"
+      },
+      {
+        "text": "\\frac{A}{x} + \\frac{B}{x^2+4} + \\frac{C}{(x^2+4)^2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ตัวเศษของ Quadratic factor ใช้ค่าคงที่ตัวเดียว"
+      },
+      {
+        "text": "\\frac{Ax+B}{x} + \\frac{Cx+D}{x^2+4} + \\frac{Ex+F}{(x^2+4)^2}",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ใส่เศษเป็นดีกรี 1 ให้พจน์ $x$ ตัวแรกด้วย ซึ่งเกินความจำเป็น"
+      }
+    ]
+  },
+  {
+    "question_number": 30,
+    "topic": "Partial Fractions",
+    "question": "ก่อนที่จะทำการแยกเศษส่วนย่อยของฟังก์ชัน $\\frac{x^3}{x^2-1}$ สิ่งแรกที่ต้องทำคืออะไร",
+    "choices": [
+      {
+        "text": "หารยาวพหุนาม เพื่อให้ดีกรีของเศษน้อยกว่าดีกรีของส่วน",
+        "is_correct": true,
+        "explanation": "เนื่องจากดีกรีของเศษ (3) มีค่ามากกว่าหรือเท่ากับดีกรีของส่วน (2) จึงเป็น Improper Rational Function ต้องหารยาวก่อนทำ Partial Fractions เสมอ"
+      },
+      {
+        "text": "แยกตัวประกอบส่วนเป็น $(x-1)(x+1)$ แล้วเขียนเป็น $A/(x-1) + B/(x+1)$ เลย",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ข้ามขั้นตอนการหารยาวไป ทำให้ผลลัพธ์ผิดพลาดทั้งหมด"
+      },
+      {
+        "text": "แทนค่า x = 1 ทันทีก่อนแยกตัวประกอบ",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: จะทำให้ส่วนเป็นศูนย์ หาค่าไม่ได้"
+      },
+      {
+        "text": "ใช้เทคนิค Integration by parts โดยไม่ต้องแยกเศษส่วนย่อย",
+        "is_correct": false,
+        "explanation": "ช้อยส์หลอก: ไม่ใช่วิธีมาตรฐานสำหรับการอินทิเกรตฟังก์ชันตรรกยะ"
+      }
+    ]
+  }
+]
+  
+]

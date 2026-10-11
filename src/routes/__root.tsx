@@ -78,10 +78,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Limit Break — Calculus 1 Game" },
+      { title: "Limit Break: Calculus 1 Game" },
       { name: "description", content: "Practice Calculus 1 with streaks, points and levels." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Limit Break — Calculus 1 Game" },
+      { property: "og:title", content: "Limit Break: Calculus 1 Game" },
       { property: "og:description", content: "Practice Calculus 1 with streaks, points and levels." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

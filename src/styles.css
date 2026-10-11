@@ -54,9 +54,9 @@
 
 :root {
   --radius: 1.25rem;
-  --background: oklch(0.95 0.04 220);
-  --foreground: oklch(0.4 0.06 265);
-  --card: oklch(0.99 0.01 95);
+  --background: oklch(0.94 0.045 215);
+  --foreground: oklch(0.32 0.065 265);
+  --card: oklch(0.985 0.018 92);
   --card-foreground: oklch(0.4 0.06 265);
   --popover: oklch(0.99 0.01 95);
   --popover-foreground: oklch(0.4 0.06 265);
@@ -64,8 +64,8 @@
   --primary-foreground: oklch(0.99 0.01 95);
   --secondary: oklch(0.9 0.06 330);
   --secondary-foreground: oklch(0.45 0.08 330);
-  --muted: oklch(0.93 0.03 220);
-  --muted-foreground: oklch(0.55 0.05 265);
+  --muted: oklch(0.9 0.035 215);
+  --muted-foreground: oklch(0.45 0.055 265);
   --accent: oklch(0.78 0.12 340);
   --accent-foreground: oklch(0.99 0.01 95);
   --success: oklch(0.78 0.13 155);
@@ -140,6 +140,11 @@
     font-family: var(--font-mono);
   }
 
+  :focus-visible {
+    outline: 3px solid var(--color-ring);
+    outline-offset: 3px;
+  }
+
   h1, h2, h3 {
     font-family: var(--font-display);
   }
@@ -166,4 +171,107 @@
 }
 @utility animate-wiggle {
   animation: wiggle 2.5s ease-in-out infinite;
+}
+
+.game-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 86% 8%, color-mix(in oklab, var(--sun) 65%, transparent) 0 7rem, transparent 7.1rem),
+    linear-gradient(140deg, color-mix(in oklab, var(--background) 88%, white), var(--background));
+}
+
+.game-header {
+  border-bottom: 2px dashed color-mix(in oklab, var(--color-border) 45%, transparent);
+  padding-bottom: 2rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid var(--color-border);
+  border-radius: 0.65rem;
+  background: var(--color-secondary);
+  padding: 0.35rem 0.7rem;
+  color: var(--color-secondary-foreground);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.stats-grid {
+  margin-top: 1.5rem;
+}
+
+.stat-card {
+  border-radius: 1.15rem;
+  background: color-mix(in oklab, var(--color-card) 82%, transparent);
+}
+
+.stat-card:first-child {
+  border-radius: 2rem 1rem 1rem 1rem;
+}
+
+.progress-panel {
+  border-left: 5px solid var(--color-accent);
+  padding-left: 1rem;
+}
+
+.topic-nav {
+  border-top: 2px solid color-mix(in oklab, var(--color-border) 35%, transparent);
+  padding-top: 1rem;
+}
+
+.mission-card {
+  overflow: visible;
+  border-width: 3px;
+  background: color-mix(in oklab, var(--color-card) 94%, white);
+}
+
+.mission-card > div:first-of-type {
+  font-size: 0.7rem;
+}
+
+.story-panel {
+  border-left: 6px solid var(--color-primary);
+  border-radius: 0.9rem 1.8rem 1.8rem 0.9rem;
+}
+
+.choice-grid button {
+  min-height: 4rem;
+  border-radius: 1rem;
+}
+
+.choice-grid button:nth-child(2n) {
+  border-radius: 1rem 1.8rem 1rem 1rem;
+}
+
+.solution-panel {
+  border-style: dashed;
+}
+
+.game-footer {
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 2px dashed color-mix(in oklab, var(--color-border) 40%, transparent);
+  padding-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  .game-shell {
+    padding-top: 2rem;
+  }
+
+  .game-header h1 {
+    font-size: 3.75rem;
+  }
+
+  .mission-card {
+    padding: 1.1rem;
+  }
+
+  .choice-grid {
+    gap: 0.65rem;
+  }
 }
