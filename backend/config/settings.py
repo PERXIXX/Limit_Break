@@ -1,10 +1,19 @@
 from pathlib import Path
+import os
+import dj_database_url
+from dotenv import load_dotenv
 
+# 1. ย้าย BASE_DIR ขึ้นมาก่อน
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# 2. บังคับให้โหลดไฟล์ .env จากโฟลเดอร์โปรเจกต์โดยตรง
+load_dotenv(str(BASE_DIR / '.env'))
+print("👉 ตำแหน่งไฟล์ .env ที่ระบบกำลังหา:", BASE_DIR / '.env')
+print("👉 สรุปว่าเจอไฟล์ .env ไหม?:", (BASE_DIR / '.env').exists())
+print("👉 ค่า DATABASE_URL ที่ดึงมาได้คือ:", os.environ.get('DATABASE_URL'))
 SECRET_KEY = "development-only-change-me"
 DEBUG = True
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-
+# ... (โค้ดส่วนที่เหลือคงไว้เหมือนเดิมครับ)
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -43,11 +52,13 @@ TEMPLATES = [
 ]
 WSGI_APPLICATION = "config.wsgi.application"
 
+# เปลี่ยนจาก SQLite เป็นการดึง URL ของ Supabase มาใช้
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 AUTH_PASSWORD_VALIDATORS = []
