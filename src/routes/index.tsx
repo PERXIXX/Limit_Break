@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import katex from "katex";
 import "katex/dist/katex.min.css";
+
+import { getLevelAtmosphere } from "@/lib/level-background";
 
 function InlineMath({ math }: { math: string }) {
   return <span dangerouslySetInnerHTML={{ __html: katex.renderToString(math, { throwOnError: false }) }} />;
@@ -61,6 +63,7 @@ const UNLOCK_LEVEL: Record<Topic, number> = {
 };
 const API_URL = import.meta.env["VITE_API_URL"] ?? "http://localhost:8000/api";
 const API_ORIGIN = new URL(API_URL).origin;
+const TEST_MODE_KEY = "ORBIT100";
 
 function levelXp(level: number) {
   return 100 * level;
@@ -157,6 +160,8 @@ function Game() {
   const [questionNonce, setQuestionNonce] = useState(0);
   const [saveLoaded, setSaveLoaded] = useState(false);
   const [showSourceModal, setShowSourceModal] = useState(false);
+  const [testMode, setTestMode] = useState(false);
+  const testKeyBuffer = useRef("");
 
   useEffect(() => {
     const splashTimer = window.setTimeout(() => setShowSplash(false), 900);
@@ -197,6 +202,20 @@ function Game() {
   }, [showSourceModal]);
 
   useEffect(() => {
+    function enableTestMode(event: KeyboardEvent) {
+      if (event.key.length !== 1 || !/[a-z0-9]/i.test(event.key)) return;
+      testKeyBuffer.current = `${testKeyBuffer.current}${event.key.toUpperCase()}`.slice(-TEST_MODE_KEY.length);
+      if (testKeyBuffer.current !== TEST_MODE_KEY) return;
+      setTestMode(true);
+      setToast("Test mode enabled");
+      window.setTimeout(() => setToast(null), 1600);
+      testKeyBuffer.current = "";
+    }
+    window.addEventListener("keydown", enableTestMode);
+    return () => window.removeEventListener("keydown", enableTestMode);
+  }, []);
+
+  useEffect(() => {
     let cancelled = false;
     async function loadQuestion() {
       setLoading(true);
@@ -227,12 +246,14 @@ function Game() {
   const pct = Math.round((save.xp / levelXp(save.level)) * 100);
   const accuracy = save.attempts ? Math.round((save.solved / save.attempts) * 100) : 0;
   const availableTopics = useMemo(() => TOPICS.filter((item) => item === "All" || save.level >= UNLOCK_LEVEL[item]), [save.level]);
+  const atmosphere = getLevelAtmosphere(save.level);
 
   function choose(index: number) {
     if (answered || !current || save.hearts <= 0) return;
-    setPicked(index);
+    const answerIndex = testMode ? current.correct_answer_index : index;
+    setPicked(answerIndex);
     setSave((previous) => {
-      const isCorrect = index === current.correct_answer_index;
+      const isCorrect = answerIndex === current.correct_answer_index;
       if (!isCorrect) return { ...previous, hearts: Math.max(0, previous.hearts - 1), streak: 0, attempts: previous.attempts + 1 };
       const streak = previous.streak + 1;
       const points = calcPoints(current.difficulty, previous.streak, hint);
@@ -283,7 +304,13 @@ function Game() {
   }
 
   return (
-    <main className="game-shell relative mx-auto max-w-5xl overflow-hidden px-5 py-10">
+    <main className={`game-shell game-shell--${atmosphere.id} relative mx-auto max-w-5xl overflow-hidden px-5 py-10`} data-level-atmosphere={atmosphere.id}>
+      <div className="level-atmosphere" aria-hidden="true">
+        <span className="level-atmosphere__orb level-atmosphere__orb--one" />
+        <span className="level-atmosphere__orb level-atmosphere__orb--two" />
+        <span className="level-atmosphere__trail level-atmosphere__trail--one" />
+        <span className="level-atmosphere__trail level-atmosphere__trail--two" />
+      </div>
       <span aria-hidden className="pointer-events-none absolute -left-4 top-24 text-5xl animate-floaty">☁️</span>
       <span aria-hidden className="pointer-events-none absolute right-2 top-40 text-4xl animate-floaty">☁️</span>
       <span aria-hidden className="pointer-events-none absolute left-1/3 top-6 text-3xl animate-wiggle">⭐</span>
@@ -296,6 +323,15 @@ function Game() {
         </div>
         <button type="button" onClick={resetProgress} className="min-h-11 rounded-full bg-muted px-4 py-2 text-xs font-bold text-muted-foreground transition hover:scale-105">🗑️ reset progress</button>
       </header>
+
+      <section className="level-banner relative mt-5 flex items-center gap-3" aria-live="polite" aria-label={`Level ${save.level} atmosphere: ${atmosphere.label}`}>
+        <span className="level-banner__icon" aria-hidden="true">{atmosphere.emoji}</span>
+        <div>
+          <p className="level-banner__eyebrow">LEVEL {save.level} / {atmosphere.label}</p>
+          <p className="level-banner__description">{atmosphere.description}</p>
+        </div>
+      </section>
+      {testMode && <p className="relative mt-3 w-fit rounded-full border-2 border-border bg-sun px-3 py-1 text-xs font-extrabold" role="status">🧪 TEST MODE: every answer counts as correct</p>}
 
       <section className="stats-grid relative mt-8 grid grid-cols-2 gap-3 md:grid-cols-4" aria-label="Your progress">
         <Stat emoji="🏆" label="Level" value={save.level} />

@@ -302,10 +302,151 @@
 }
 
 .game-shell {
+  isolation: isolate;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
   background:
     radial-gradient(circle at 86% 8%, color-mix(in oklab, var(--sun) 65%, transparent) 0 7rem, transparent 7.1rem),
     linear-gradient(140deg, color-mix(in oklab, var(--background) 88%, white), var(--background));
+}
+
+.game-shell--launchpad {
+  --level-wash: color-mix(in oklab, var(--sun) 24%, transparent);
+  --level-glow: color-mix(in oklab, var(--color-primary) 22%, transparent);
+  background:
+    radial-gradient(circle at 86% 8%, oklch(0.88 0.13 95) 0 7rem, transparent 7.1rem),
+    linear-gradient(140deg, oklch(0.97 0.035 88), oklch(0.88 0.08 205));
+}
+
+.game-shell--cloudline {
+  --level-wash: color-mix(in oklab, var(--color-primary) 24%, transparent);
+  --level-glow: color-mix(in oklab, var(--color-card) 72%, transparent);
+  background:
+    radial-gradient(circle at 15% 18%, oklch(0.99 0.015 95) 0 8rem, transparent 8.1rem),
+    linear-gradient(140deg, oklch(0.96 0.025 205), oklch(0.78 0.11 220));
+}
+
+.game-shell--sunrise {
+  --level-wash: color-mix(in oklab, var(--sun) 34%, transparent);
+  --level-glow: color-mix(in oklab, var(--accent) 20%, transparent);
+  background:
+    radial-gradient(circle at 78% 12%, oklch(0.9 0.16 70) 0 9rem, transparent 9.1rem),
+    linear-gradient(145deg, oklch(0.98 0.045 70), oklch(0.84 0.12 345));
+}
+
+.game-shell--starlane {
+  --level-wash: color-mix(in oklab, var(--accent) 27%, transparent);
+  --level-glow: color-mix(in oklab, var(--color-primary) 28%, transparent);
+  background:
+    radial-gradient(circle at 86% 11%, oklch(0.78 0.14 82) 0 5rem, transparent 5.1rem),
+    linear-gradient(145deg, oklch(0.78 0.09 270), oklch(0.64 0.13 305) 52%, oklch(0.79 0.12 220));
+}
+
+.game-shell--deep-space {
+  --level-wash: color-mix(in oklab, var(--color-primary) 32%, transparent);
+  --level-glow: color-mix(in oklab, var(--accent) 28%, transparent);
+  --foreground: oklch(0.96 0.02 265);
+  --muted-foreground: oklch(0.82 0.04 265);
+  background:
+    radial-gradient(circle at 78% 12%, oklch(0.76 0.14 320) 0 5rem, transparent 5.1rem),
+    linear-gradient(145deg, oklch(0.27 0.09 275), oklch(0.18 0.1 305) 55%, oklch(0.28 0.1 230));
+}
+
+.level-atmosphere {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  transition: background 700ms ease;
+  background:
+    radial-gradient(circle at 13% 18%, var(--level-wash) 0 9rem, transparent 9.2rem),
+    radial-gradient(circle at 90% 62%, var(--level-glow) 0 12rem, transparent 12.2rem);
+}
+
+.level-atmosphere__orb,
+.level-atmosphere__trail {
+  position: absolute;
+  display: block;
+  transition: transform 700ms ease, background 700ms ease, border-color 700ms ease;
+}
+
+.level-atmosphere__orb {
+  width: 12rem;
+  height: 12rem;
+  border: 2px solid color-mix(in oklab, var(--color-border) 16%, transparent);
+  border-radius: 50%;
+}
+
+.level-atmosphere__orb--one {
+  top: 11rem;
+  right: -6rem;
+  background: color-mix(in oklab, var(--level-glow) 55%, transparent);
+}
+
+.level-atmosphere__orb--two {
+  bottom: 7rem;
+  left: -8rem;
+  width: 17rem;
+  height: 17rem;
+  border-style: dashed;
+  background: color-mix(in oklab, var(--level-wash) 28%, transparent);
+}
+
+.level-atmosphere__trail {
+  width: 22rem;
+  height: 5rem;
+  border: 2px dashed color-mix(in oklab, var(--color-border) 18%, transparent);
+  border-radius: 50%;
+  transform: rotate(-18deg);
+}
+
+.level-atmosphere__trail--one {
+  top: 23rem;
+  left: -10rem;
+}
+
+.level-atmosphere__trail--two {
+  right: -11rem;
+  bottom: 22rem;
+  transform: rotate(16deg);
+}
+
+.level-banner {
+  max-width: 36rem;
+  border-left: 5px solid var(--color-accent);
+  border-radius: 0 1.5rem 1.5rem 0;
+  background: color-mix(in oklab, var(--color-card) 70%, transparent);
+  padding: 0.7rem 1rem 0.7rem 0.8rem;
+  backdrop-filter: blur(5px);
+}
+
+.level-banner__icon {
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 2px solid var(--color-border);
+  border-radius: 1rem 1rem 1rem 0.3rem;
+  background: var(--color-card);
+  font-size: 1.35rem;
+  transform: rotate(-6deg);
+}
+
+.level-banner__eyebrow {
+  color: var(--color-primary);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.level-banner__description {
+  margin-top: 0.1rem;
+  color: var(--color-muted-foreground);
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .game-header {
