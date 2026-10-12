@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 import dj_database_url
-from dotenv import load_dotenv
+# load_dotenv(str(BASE_DIR / '.env'))  <-- ใส่ # เพื่อคอมเมนต์ทิ้งไปเลยครับ
 
 # 1. ย้าย BASE_DIR ขึ้นมาก่อน
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -57,18 +57,18 @@ import dj_database_url
 import os
 
 # ดึงค่า URL จาก Vercel
-DATABASE_URL = os.environ.get('DATABASE_URL')
+import os
+import dj_database_url
 
-# ถ้ามี DATABASE_URL (เช่น บน Vercel) ให้เชื่อมต่อ Supabase
-if DATABASE_URL:
+# ดึงค่า URL และตัดช่องว่างส่วนเกินทิ้ง
+DB_URL = os.environ.get('DATABASE_URL', '').strip()
+
+# ถ้ามี URL ของ Supabase ส่งมาจริงๆ ค่อยเชื่อมต่อ
+if DB_URL != '':
     DATABASES = {
-        'default': dj_database_url.config(
-            default=DATABASE_URL,
-            conn_max_age=600,
-            conn_health_checks=True,
-        )
+        'default': dj_database_url.parse(DB_URL, conn_max_age=600, conn_health_checks=True)
     }
-# ถ้าไม่มี (เช่น รันในเครื่อง หรือ Vercel หาไม่เจอชั่วคราว) ให้ใช้ SQLite แทนเพื่อป้องกันระบบแครช
+# ถ้าไม่มี (เช่น รันในเครื่องที่ไม่ได้ตั้งตัวแปรไว้) ให้ใช้ SQLite สำรองไปก่อน ระบบจะได้ไม่พัง
 else:
     DATABASES = {
         'default': {
