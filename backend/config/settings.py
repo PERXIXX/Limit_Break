@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 import dj_database_url
-# load_dotenv(str(BASE_DIR / '.env'))  <-- ใส่ # เพื่อคอมเมนต์ทิ้งไปเลยครับ
+# load_dotenv(str(BASE_DIR / '.env'))  <--- ใส่ # ด้านหน้า หรือลบบรรทัดนี้ทิ้งไปเลย
 
 # 1. ย้าย BASE_DIR ขึ้นมาก่อน
 BASE_DIR = Path(__file__).resolve().parent.parent
