@@ -53,13 +53,29 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 # เปลี่ยนจาก SQLite เป็นการดึง URL ของ Supabase มาใช้
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
-}
+import dj_database_url
+import os
+
+# ดึงค่า URL จาก Vercel
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+# ถ้ามี DATABASE_URL (เช่น บน Vercel) ให้เชื่อมต่อ Supabase
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=DATABASE_URL,
+            conn_max_age=600,
+            conn_health_checks=True,
+        )
+    }
+# ถ้าไม่มี (เช่น รันในเครื่อง หรือ Vercel หาไม่เจอชั่วคราว) ให้ใช้ SQLite แทนเพื่อป้องกันระบบแครช
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = []
 LANGUAGE_CODE = "en-us"
