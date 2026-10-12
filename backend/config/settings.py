@@ -1,19 +1,14 @@
 from pathlib import Path
 import os
 import dj_database_url
-# load_dotenv(str(BASE_DIR / '.env'))  <--- ใส่ # ด้านหน้า หรือลบบรรทัดนี้ทิ้งไปเลย
 
 # 1. ย้าย BASE_DIR ขึ้นมาก่อน
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# 2. บังคับให้โหลดไฟล์ .env จากโฟลเดอร์โปรเจกต์โดยตรง
-load_dotenv(str(BASE_DIR / '.env'))
 SECRET_KEY = "development-only-change-me"
 DEBUG = True
-SECRET_KEY = "development-only-change-me"
-DEBUG = True
-ALLOWED_HOSTS = ['*']  # <--- เพิ่มบรรทัดนี้เข้าไปครับ อนุญาตให้เข้าถึงได้จากทุกที่
-# ... (โค้ดส่วนที่เหลือคงไว้เหมือนเดิมครับ)
+ALLOWED_HOSTS = ['*']  
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -52,14 +47,6 @@ TEMPLATES = [
 ]
 WSGI_APPLICATION = "config.wsgi.application"
 
-# เปลี่ยนจาก SQLite เป็นการดึง URL ของ Supabase มาใช้
-import dj_database_url
-import os
-
-# ดึงค่า URL จาก Vercel
-import os
-import dj_database_url
-
 # ดึงค่า URL และตัดช่องว่างส่วนเกินทิ้ง
 DB_URL = os.environ.get('DATABASE_URL', '').strip()
 
@@ -86,9 +73,12 @@ STATIC_URL = "static/"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# อย่าลืมเปลี่ยนลิงก์ข้างล่างให้ตรงกับโดเมน Vercel ปัจจุบันของคุณ (ถ้าเปลี่ยนชื่อโปรเจกต์)
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173", 
     "http://127.0.0.1:5173",
-    "https://precise-capture-wizard.vercel.app",  # <--- เพิ่มบรรทัดนี้เข้าไป (ห้ามมีเครื่องหมาย / ต่อท้าย)
+    "https://precise-capture-wizard.vercel.app", 
+    "https://breaklimit-ochre.vercel.app",
 ]
 CORS_ALLOW_ALL_ORIGINS = DEBUG
