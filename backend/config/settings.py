@@ -8,11 +8,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # 2. บังคับให้โหลดไฟล์ .env จากโฟลเดอร์โปรเจกต์โดยตรง
 load_dotenv(str(BASE_DIR / '.env'))
-print("👉 ตำแหน่งไฟล์ .env ที่ระบบกำลังหา:", BASE_DIR / '.env')
-print("👉 สรุปว่าเจอไฟล์ .env ไหม?:", (BASE_DIR / '.env').exists())
-print("👉 ค่า DATABASE_URL ที่ดึงมาได้คือ:", os.environ.get('DATABASE_URL'))
 SECRET_KEY = "development-only-change-me"
 DEBUG = True
+SECRET_KEY = "development-only-change-me"
+DEBUG = True
+ALLOWED_HOSTS = ['*']  # <--- เพิ่มบรรทัดนี้เข้าไปครับ อนุญาตให้เข้าถึงได้จากทุกที่
 # ... (โค้ดส่วนที่เหลือคงไว้เหมือนเดิมครับ)
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -70,5 +70,9 @@ STATIC_URL = "static/"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173", 
+    "http://127.0.0.1:5173",
+    "https://precise-capture-wizard.vercel.app",  # <--- เพิ่มบรรทัดนี้เข้าไป (ห้ามมีเครื่องหมาย / ต่อท้าย)
+]
 CORS_ALLOW_ALL_ORIGINS = DEBUG
